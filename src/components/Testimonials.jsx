@@ -33,7 +33,7 @@ function Testimonials() {
         </h2>
         <div className="flex flex-col lg:flex-row gap-8 place-content-center">
           {testimonials.map((testimonial)=> (
-              <div key={testimonial.id} className="space-y-8 [background:linear-gradient(144.39deg,_#F3FAFC_-278.56%,_#6C8791_-110.98%,_#06191F_87.63%)] rounded-[20px] p-8 w-80 mx-auto lg:mx-0">
+              <div key={testimonial.id} className="space-y-8 [background:linear-gradient(144.39deg,_#F3FAFC_-278.56%,_#6C8791_-110.98%,_#06191F_87.63%)] rounded-[20px] p-8 max-w-80 sm:w-80 mx-auto lg:mx-0">
               <div className="flex flex-col place-content-center">
               <img
                   src={`./images/${testimonial.image}.png`}
