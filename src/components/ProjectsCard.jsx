@@ -23,37 +23,39 @@ const card_details = [
 
 function ProjectsCard() {
   return (
-    <div className="font-poppins space-y-16 pb-16 md:pb-28">
-      <h2 className="font-fjalla_one tracking-wide text-5xl leading-snug sm:text-[64px] text-[#9FE221] text-center lg:text-left">
-        Projects Portfolio
-      </h2>
-      <div className="flex flex-col md:flex-row gap-4 lg:gap-16">
-        {card_details.map((detail) => (
-          <div key={detail.id} className="group font-poppins max-w-[352px] mx-auto">
-            <img
-              src={`./images/${detail.image}.svg`}
-              className="aspect-w-1 aspect-h-1 mx-auto grayscale brightness-50"
-              alt=""
-            />
-            <div className="space-y-5 px-6">
-              <div className="flex flex-col items-center justify-center gap-1">
-                <h3 className="font-fjalla_one text-[#78BB21] text-center text-xl tracking-wide">
-                  {detail.title} Projects
-                </h3>
-                <div className="self-center">
-                  <img
-                    src="./images/decorated_divider.svg"
-                    className="mx-auto max-w-[62px]"
-                    alt=""
-                  />
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="font-poppins space-y-16 pb-16 md:pb-28">
+        <h2 className="font-fjalla_one tracking-wide text-5xl leading-snug sm:text-[64px] text-[#9FE221] text-center lg:text-left">
+          Projects Portfolio
+        </h2>
+        <div className="flex flex-col md:flex-row gap-4 lg:gap-16">
+          {card_details.map((detail) => (
+            <div key={detail.id} className="group font-poppins max-w-[352px] mx-auto">
+              <img
+                src={`./images/${detail.image}.svg`}
+                className="aspect-w-1 aspect-h-1 mx-auto grayscale brightness-50"
+                alt=""
+              />
+              <div className="space-y-5 px-6">
+                <div className="flex flex-col items-center justify-center gap-1">
+                  <h3 className="font-fjalla_one text-[#78BB21] text-center text-xl tracking-wide">
+                    {detail.title} Projects
+                  </h3>
+                  <div className="self-center">
+                    <img
+                      src="./images/decorated_divider.svg"
+                      className="mx-auto max-w-[62px]"
+                      alt=""
+                    />
+                  </div>
                 </div>
+                <p className="text-sm text-[#D9F4FD] text-justify max-w-prose mx-auto">
+                  {detail.desc}
+                </p>
               </div>
-              <p className="text-sm text-[#D9F4FD] text-justify max-w-prose mx-auto">
-                {detail.desc}
-              </p>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </div>
   );

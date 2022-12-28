@@ -1,6 +1,7 @@
 import About from "./components/About"
 import Brands from "./components/Brands"
-import CalculatorCta from "./components/CalculatorCta"
+import CalculatorCTA from "./components/CalculatorCTA"
+import ContactCTA from "./components/ContactCTA"
 import ContactForm from "./components/ContactForm"
 import Footer from "./components/Footer"
 import Hero from "./components/Hero"
@@ -15,7 +16,6 @@ import ContactPage from "./pages/ContactPage"
 function App() {
   return (
     <div className="bg-[#041014]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <Navbar />
         {/* <ContactPage /> */}
         {/* <CalculatorPage /> */}
@@ -26,9 +26,9 @@ function App() {
         <ProjectsCard />
         <Stats />
         <Testimonials />
-        <CalculatorCta />
+        <CalculatorCTA />
+        <ContactCTA />
         <Footer />
-      </div>
     </div>
   )
 }

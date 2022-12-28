@@ -116,90 +116,92 @@ const footer = [
 
 function Footer() {
   return (
-    <div className="space-y-16">
-      <div className="bg-[#04303F] space-y-12 font-poppins rounded-xl px-4 shadow-sm">
-        <div className="space-y-10 py-12 sm:py-16 max-w-3xl mx-auto">
-          <h2 className="text-[#9FE221] text-2xl sm:text-4xl font-semibold text-center">
-            Subscribe to our newsletter
-          </h2>
-          <form action="">
-            <div className="grid grid-cols-1 items-center gap-x-3 gap-y-5 md:grid-cols-3">
-              <div>
-                <input
-                  type="text"
-                  id="first_name"
-                  name="first_name"
-                  className="text-white bg-white/10 border [border:linear-gradient(180deg,_#0e7fa6,_#08546d)] text-sm rounded-lg focus:ring-2 focus:ring-white block w-full px-4 py-3 shadow-sm outline-none"
-                  placeholder="First name"
-                />
-              </div>
-              <div>
-                <input
-                  type="text"
-                  id="email"
-                  name="email"
-                  className="text-white bg-white/10 border [border:linear-gradient(180deg,_#0e7fa6,_#08546d)] text-sm rounded-lg focus:ring-2 focus:ring-white block w-full px-4 py-3 shadow-sm outline-none"
-                  placeholder="Email"
-                />
-              </div>
-              <Button styles={"leading-snug"} button_text={"Subscribe now"} />
-            </div>
-          </form>
-        </div>
-      </div>
-
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-8">
-        {footer.map((item) => (
-          <div key={item.id}>
-            {item.id === 1 ? (
-              <div className="space-y-8 col-span-1">
-                <img
-                  src={`./images/${item.logo}.png`}
-                  alt=""
-                  className="w-auto h-8"
-                />
-                <p className="text-sm text-gray-600 max-w-[28ch]">
-                  {item.about}
-                </p>
-                <div className="flex items-center justify-start gap-x-2">
-                  {item.social_icons.map((icon_item) => (
-                    <a key={icon_item.id} className="bg-[#04303F] text-white w-8 p-2 rounded-full">
-                      <svg
-                        aria-hidden="true"
-                        focusable="false"
-                        data-prefix="fab"
-                        data-icon={icon_item.data_icon}
-                        className={`svg-inline--fa fa-${icon_item.data_icon} w-4`}
-                        role="img"
-                        xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 512 512"
-                      >
-                        <path fill="currentColor" d={icon_item.d}></path>
-                      </svg>
-                    </a>
-                  ))}
-                </div>
-              </div>
-            ) : (
-              <div className="group text-sm">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="space-y-16">
+        <div className="bg-[#04303F] space-y-12 font-poppins rounded-xl px-4 shadow-sm">
+          <div className="space-y-10 py-12 sm:py-16 max-w-3xl mx-auto">
+            <h2 className="text-[#9FE221] text-2xl sm:text-4xl font-semibold text-center">
+              Subscribe to our newsletter
+            </h2>
+            <form action="">
+              <div className="grid grid-cols-1 items-center gap-x-3 gap-y-5 md:grid-cols-3">
                 <div>
-                  <h2 className="text-[#9FE221] font-semibold">{item.title}</h2>
-                  <div>
-                    {item.columns.map((sub) => (
-                      <a key={sub?.id} className="mt-6 block text-gray-600">
-                        {sub?.subtitle}
+                  <input
+                    type="text"
+                    id="first_name"
+                    name="first_name"
+                    className="text-white bg-white/10 border [border:linear-gradient(180deg,_#0e7fa6,_#08546d)] text-sm rounded-lg focus:ring-2 focus:ring-white block w-full px-4 py-3 shadow-sm outline-none"
+                    placeholder="First name"
+                  />
+                </div>
+                <div>
+                  <input
+                    type="text"
+                    id="email"
+                    name="email"
+                    className="text-white bg-white/10 border [border:linear-gradient(180deg,_#0e7fa6,_#08546d)] text-sm rounded-lg focus:ring-2 focus:ring-white block w-full px-4 py-3 shadow-sm outline-none"
+                    placeholder="Email"
+                  />
+                </div>
+                <Button styles={"leading-snug"} button_text={"Subscribe now"} />
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-8">
+          {footer.map((item) => (
+            <div key={item.id}>
+              {item.id === 1 ? (
+                <div className="space-y-8 col-span-1">
+                  <img
+                    src={`./images/${item.logo}.png`}
+                    alt=""
+                    className="w-auto h-8"
+                  />
+                  <p className="text-sm text-gray-600 max-w-[28ch]">
+                    {item.about}
+                  </p>
+                  <div className="flex items-center justify-start gap-x-2">
+                    {item.social_icons.map((icon_item) => (
+                      <a key={icon_item.id} className="bg-[#04303F] text-white w-8 p-2 rounded-full">
+                        <svg
+                          aria-hidden="true"
+                          focusable="false"
+                          data-prefix="fab"
+                          data-icon={icon_item.data_icon}
+                          className={`svg-inline--fa fa-${icon_item.data_icon} w-4`}
+                          role="img"
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 512 512"
+                        >
+                          <path fill="currentColor" d={icon_item.d}></path>
+                        </svg>
                       </a>
                     ))}
                   </div>
                 </div>
-              </div>
-            )}
-          </div>
-        ))}
-      </div>
+              ) : (
+                <div className="group text-sm">
+                  <div>
+                    <h2 className="text-[#9FE221] font-semibold">{item.title}</h2>
+                    <div>
+                      {item.columns.map((sub) => (
+                        <a key={sub?.id} className="mt-6 block text-gray-600">
+                          {sub?.subtitle}
+                        </a>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              )}
+            </div>
+          ))}
+        </div>
 
-      <div className="border-t-2 border-gray-600">
-         <p className="px-4 py-8 text-center text-gray-600 text-xs">© Copyright 2022, All Rights Reserved by SZSolar</p>
+        <div className="border-t-2 border-gray-600">
+          <p className="px-4 py-8 text-center text-gray-600 text-xs">© Copyright 2022, All Rights Reserved by SZSolar</p>
+        </div>
       </div>
     </div>
   );
