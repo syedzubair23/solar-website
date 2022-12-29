@@ -26,8 +26,8 @@ const testimonials = [
 
 function Testimonials() {
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div className="font-poppins space-y-20 pb-16 md:pb-28">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16 md:mb-28">
+      <div className="font-poppins space-y-20">
         <h2 className="font-fjalla_one tracking-wide text-3xl leading-snug md:leading-tight sm:text-5xl mx-auto md:mx-0 max-w-[17ch] text-[#9FE221] text-center md:text-left">
         What people are saying about us
         </h2>

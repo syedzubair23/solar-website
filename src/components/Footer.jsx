@@ -118,34 +118,36 @@ function Footer() {
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div className="space-y-16">
-        <div className="bg-[#04303F] space-y-12 font-poppins rounded-xl px-4 shadow-sm">
-          <div className="space-y-10 py-12 sm:py-16 max-w-3xl mx-auto">
-            <h2 className="text-[#9FE221] text-2xl sm:text-4xl font-semibold text-center">
-              Subscribe to our newsletter
-            </h2>
-            <form action="">
-              <div className="grid grid-cols-1 items-center gap-x-3 gap-y-5 md:grid-cols-3">
-                <div>
-                  <input
-                    type="text"
-                    id="first_name"
-                    name="first_name"
-                    className="text-white bg-white/10 border [border:linear-gradient(180deg,_#0e7fa6,_#08546d)] text-sm rounded-lg focus:ring-2 focus:ring-white block w-full px-4 py-3 shadow-sm outline-none"
-                    placeholder="First name"
-                  />
+        <div className="bg-[#04303F] space-y-12 font-poppins rounded-xl shadow-sm bg-[url('./images/footerdecorated_bgimage1.svg')] bg-no-repeat bg-left-top">
+          <div className="bg-footer-decor2 bg-no-repeat bg-right-bottom px-4">
+            <div className="space-y-14 py-12 sm:px-8 sm:py-20 max-w-4xl mx-auto">
+              <h2 className="text-[#9FE221] text-2xl sm:text-4xl font-semibold text-center leading-none">
+                Subscribe to our newsletter
+              </h2>
+              <form action="">
+                <div className="grid grid-cols-1 items-center gap-x-3 gap-y-5 md:grid-cols-3">
+                  <div>
+                    <input
+                      type="text"
+                      id="first_name"
+                      name="first_name"
+                      className="text-white bg-white/10 border [border:linear-gradient(180deg,_#0e7fa6,_#08546d)] text-sm rounded-lg focus:ring-2 focus:ring-white block w-full px-4 py-3 shadow-sm outline-none"
+                      placeholder="First name"
+                    />
+                  </div>
+                  <div>
+                    <input
+                      type="text"
+                      id="email"
+                      name="email"
+                      className="text-white bg-white/10 border [border:linear-gradient(180deg,_#0e7fa6,_#08546d)] text-sm rounded-lg focus:ring-2 focus:ring-white block w-full px-4 py-3 shadow-sm outline-none"
+                      placeholder="Email"
+                    />
+                  </div>
+                  <Button styles={"leading-snug text-white"} button_text={"Subscribe now"} />
                 </div>
-                <div>
-                  <input
-                    type="text"
-                    id="email"
-                    name="email"
-                    className="text-white bg-white/10 border [border:linear-gradient(180deg,_#0e7fa6,_#08546d)] text-sm rounded-lg focus:ring-2 focus:ring-white block w-full px-4 py-3 shadow-sm outline-none"
-                    placeholder="Email"
-                  />
-                </div>
-                <Button styles={"leading-snug"} button_text={"Subscribe now"} />
-              </div>
-            </form>
+              </form>
+            </div>
           </div>
         </div>
 

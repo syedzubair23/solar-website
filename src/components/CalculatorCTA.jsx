@@ -3,7 +3,7 @@ import React from 'react'
 function CalculatorCTA() {
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 bg-gradient-to-r [background:linear-gradient(_101.27deg,_#31640B_0%,_#397C08_50.67%,_#78BB21_101.34%)] py-16 mb-16 md:mb-28">
-        <div className='font-poppins space-y-8'>
+        <div className='font-poppins space-y-8 max-w-5xl mx-auto'>
             <div className="flex flex-col md:flex-row md:justify-between items-center justify-center gap-x-8 gap-y-12 py-8 px-4 md:p-16 bg-white/[12%] rounded-xl shadow-[0px_0px_40px_rgba(0,0,0,0.25)]">
                 <div className="flex flex-col gap-y-6 md:gap-y-8">
                     <h3 className='text-2xl lg:text-4xl text-center md:text-left font-semibold text-[#D9F4FD] mx-auto md:max-w-none leading-tight max-w-[24ch]'>Confused? Use SZSolar's Estimated Bill Calculator</h3>
@@ -15,7 +15,7 @@ function CalculatorCTA() {
                     </div>
                 </div>
                 <div>
-                    <img src="./images/calculatorcta-image.png" className='aspect-w-1 aspect-h-1 max-w-[230px] lg:max-w-[330px] h-auto' alt="" />
+                    <img src="./images/calculatorcta-image.png" className='max-w-[230px] lg:max-w-[330px] h-auto' alt="" />
                 </div>
             </div>
         </div>
