@@ -8,26 +8,21 @@ import Hero from "./components/Hero"
 import Navbar from "./components/Navbar"
 import OfferCard from "./components/OfferCard"
 import ProjectsCard from "./components/ProjectsCard"
+import SolarQuote from "./components/SolarQuote"
 import Stats from "./components/Stats"
 import Testimonials from "./components/Testimonials"
 import CalculatorPage from "./pages/CalculatorPage"
 import ContactPage from "./pages/ContactPage"
+import LandingPage from "./pages/LandingPage"
 
 function App() {
   return (
     <div className="bg-[#041014]">
         <Navbar />
         {/* <ContactPage /> */}
-        {/* <CalculatorPage /> */}
-        <Hero />
-        <About />
-        <OfferCard />
-        <Brands />
-        <ProjectsCard />
-        <Stats />
-        <Testimonials />
-        <CalculatorCTA />
-        <ContactCTA />
+        <CalculatorPage />
+        {/* <LandingPage />       */}
+        <SolarQuote />
         <Footer />
     </div>
   )

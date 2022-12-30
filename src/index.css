@@ -2,5 +2,18 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap");
 
 @tailwind base;
+
+@layer base {
+    tbody td {
+        @apply border-[3px] border-gray-400/60 px-2.5 py-2 border-collapse border-r-0 text-center;
+    }
+    th {
+        @apply px-2.5 py-2 text-center;
+    }
+    tfoot tr td {
+        @apply p-2.5 text-center;
+    }
+}
+
 @tailwind components;
 @tailwind utilities;

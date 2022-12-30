@@ -5,7 +5,7 @@ import Button from "./Button";
 
 function ContactForm() {
   return (
-    <div className="font-poppins max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="font-poppins">
         <div className="grid grid-cols-2 md:grid-cols-5 gap-8 md:gap-16 bg-[#084457B5]/70 rounded-3xl">
           <div className="py-11 px-8 col-span-2 [background:linear-gradient(180deg,_#0e7fa6,_#08546d)] rounded-t-3xl md:rounded-tr-none md:rounded-l-3xl">
             <div className="flex flex-col justify-center items-start space-y-4 text-[#BBEBFB]">
@@ -23,7 +23,7 @@ function ContactForm() {
                 </div>
                 <div className="flex md:flex-col justify-center items-start gap-4 lg:items-center lg:flex-row">
                   <HiOutlineMail className="w-6 h-6 text-[#04303F]" />
-                  <p className="text-sm">support@workcation.com</p>
+                  <p className="text-sm">support@gmail.com</p>
                 </div>
               </div>
             </div>
@@ -134,7 +134,7 @@ function ContactForm() {
                       </div>
                 
               </div>
-              <Button styles={"w-full mt-8"} button_text={"Send message"} />
+              <Button styles={"w-full mt-8 text-white"} button_text={"Send message"} />
             </form>
           </div>
         </div>

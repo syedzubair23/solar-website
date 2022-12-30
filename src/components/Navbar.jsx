@@ -78,10 +78,10 @@ export default function Navbars() {
           <div className="flex items-center justify-between py-4 md:space-x-10">
             <div className="flex justify-start lg:w-0 lg:flex-1">
               <a href="#">
-                <span className="sr-only">Your Company</span>
+                <span className="sr-only">SZSolar</span>
                 <img
                   className="h-8 w-auto sm:h-10"
-                  src="./images/logo.png"
+                  src="./images/szsolar-logo.svg"
                   alt=""
                 />
               </a>

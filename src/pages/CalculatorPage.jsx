@@ -1,26 +1,118 @@
-import React from 'react'
-import Button from '../components/Button'
+import React from "react";
+import Button from "../components/Button";
+import CustomSelect from "../components/CustomSelect";
+
+const solar_panel_company = [
+    { id: 1, item: 'CanadianSolar' },
+    { id: 2, item: 'Longi' },
+    { id: 3, item: 'JASolar' },
+    { id: 4, item: 'Inverex' },
+    { id: 5, item: 'JinkoSolar' },
+  ]
+  
+  const solar_technology = [
+    { id: 1, item: 'Mono-Perc Halfcut' },
+    { id: 2, item: 'PolyCrystalline' },
+  ]
+  
+  const panel_watt_rating = [
+      { id: 1, item: '370 watt' },
+      { id: 2, item: '535 watt' },
+      { id: 3, item: '540 watt' },
+      { id: 4, item: '545 watt' },
+      { id: 5, item: '600 watt' },
+      { id: 6, item: '665 watt' },
+    ]
+  
+  const number_of_panels = [...Array(99).keys()]
+  
+  const inverter_company = [
+      { id: 1, item: 'Inverex' },
+      { id: 2, item: 'SolarMax' },
+      { id: 3, item: 'MaxPower' },
+      { id: 4, item: 'Fronius' },
+      { id: 5, item: 'Solis' },
+      { id: 6, item: 'Tesla' },
+      { id: 7, item: 'ABB' },
+    ]
+  
+  const inverter_kw_rating = [
+      { id: 1, item: '1.5kw' },
+      { id: 2, item: '3.2kw' },
+      { id: 3, item: '5kw' },
+      { id: 4, item: '5.6kw' },
+      { id: 5, item: '6kw' },
+      { id: 6, item: '8kw' },
+      { id: 7, item: '10kw' },
+    ]
+  
+  const mounting_structure = [
+      { id: 1, item: 'L2 Galvanized Iron' },
+      { id: 2, item: 'L3 Galvanized Iron' },
+      { id: 3, item: 'Custom Iron Structure' },
+    ]  
+  
+  const battery_type = [
+      { id: 1, item: 'Tubular' },
+      { id: 2, item: 'Lead-Acid' },
+      { id: 3, item: 'Lithium' },
+    ]  
+  
+  const battery_company = [
+      { id: 1, item: 'Phoenix' },
+      { id: 2, item: 'Osaka' },
+      { id: 3, item: 'Inverex' },
+    ]  
+  
+  const battery_ampere = [
+      { id: 1, item: '185AH' },
+      { id: 2, item: '200AH' },
+    ]  
+
 
 function CalculatorPage() {
   return (
-    <div className='py-16 md:py-28'>
-        <div className='space-y-16 sm:space-y-28'>
-            <h2 className='font-fjalla_one text-5xl sm:text-7xl lg:text-8xl text-white tracking-wide text-center'>Solar Calculator</h2>
-            <div className='[background:linear-gradient(101.27deg,_#31640b,_#397c08_50%,_#78bb21)] py-20 grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-10 items-start justify-items-center font-poppins px-2 sm:px-4'>
-                    <div className="space-y-10 md:space-y-14">
-                        <h3 className='text-3xl lg:text-4xl font-semibold text-white text-center'>Electricity Units (Monthly)</h3>
-                        <div className="space-y-6">
-                            <h4 className='text-xl md:text-2xl font-semibold text-[#041014] text-center'>300 Units</h4>
-                            <input type="range" className='bg-[#9FE221] w-full' />
-                        </div>
-                    </div>
-                    <div className="space-y-10 md:space-y-14">
-                        <h3 className='text-3xl lg:text-4xl font-semibold text-white text-center'>System Capacity</h3>
-                        <h4 className='text-xl md:text-2xl font-semibold text-[#041014] text-center'>3KW Solar System</h4>
-                    </div>
-            </div>
-            <form action="" className="max-w-xl md:max-w-3xl mx-auto font-poppins">
-                <h3 className='text-3xl font-semibold text-white text-center mb-10'>Get Estimated Quote</h3>
+    <>
+    <div className="max-w-7xl mx-auto py-16 md:py-28 mb-16 md:mb-28 bg-[url('/images/calculatorpage-bgimage.png')] bg-no-repeat bg-cover">
+      {/* <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-28 mb-16">
+        <img
+          src="./images/calculatorpage-bgimage.png"
+          className="absolute top-0 max-w-7xl mx-auto z-0 object-contain"
+          alt=""
+        /> */}
+        <div className="space-y-16 sm:space-y-28">
+          <h2 className="px-4 sm:px-6 lg:px-8 font-fjalla_one text-5xl sm:text-7xl lg:text-8xl text-white tracking-wide text-center">
+            Solar Calculator
+          </h2>
+          <div className="px-6 sm:px-10 lg:px-12 [background:linear-gradient(101.27deg,_#31640b,_#397c08_50%,_#78bb21)] py-20 grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-10 items-start justify-items-center font-poppins">
+              <div className="space-y-10 md:space-y-14">
+                <h3 className="text-3xl lg:text-4xl font-semibold text-white text-center">
+                  Electricity Units (Monthly)
+                </h3>
+                <div className="space-y-6">
+                  <h4 className="text-xl md:text-2xl font-semibold text-[#041014] text-center">
+                    300 Units
+                  </h4>
+                  <input type="range" className="bg-[#9FE221] w-full" />
+                </div>
+              </div>
+              <div className="space-y-10 md:space-y-14">
+                <h3 className="text-3xl lg:text-4xl font-semibold text-white text-center">
+                  System Capacity
+                </h3>
+                <h4 className="text-xl md:text-2xl font-semibold text-[#041014] text-center">
+                  3KW Solar System
+                </h4>
+              </div>
+          </div>
+          <div className="px-4 sm:px-6 lg:px-8">
+            <form
+              action=""
+              className="max-w-xl md:max-w-3xl mx-auto font-poppins"
+            >
+              <h3 className="text-3xl font-semibold text-white text-center mb-10">
+                Get Estimated Quote
+              </h3>
               <div className="space-y-6">
                 <div className="grid gap-x-8 gap-y-5 md:grid-cols-2">
                   <div>
@@ -28,30 +120,18 @@ function CalculatorPage() {
                       htmlFor="first_name"
                       className="block mb-1.5 text-xs text-white"
                     >
-                      First name
+                      Solar Company
                     </label>
-                    <input
-                      type="text"
-                      id="first_name"
-                      name="first_name"
-                      className="text-white bg-white/10 border [border:linear-gradient(180deg,_#0e7fa6,_#08546d)] text-sm rounded-lg focus:ring-2 focus:ring-white block w-full px-4 py-3 shadow-sm outline-none"
-                      placeholder="First name"
-                    />
+                    <CustomSelect number={false} option={solar_panel_company} />
                   </div>
                   <div>
                     <label
                       htmlFor="last_name"
                       className="block mb-1.5 text-xs text-white"
                     >
-                      Last name
+                      Solar Technology
                     </label>
-                    <input
-                      type="text"
-                      id="last_name"
-                      name="last_name"
-                      className="text-white bg-white/10 border [border:linear-gradient(180deg,_#0e7fa6,_#08546d)] text-sm rounded-lg focus:ring-2 focus:ring-white block w-full px-4 py-3 shadow-sm outline-none"
-                      placeholder="Last name"
-                    />
+                    <CustomSelect number={false} option={solar_technology} />
                   </div>
                 </div>
                 <div className="grid gap-x-8 gap-y-5 md:grid-cols-2">
@@ -60,41 +140,91 @@ function CalculatorPage() {
                       htmlFor="first_name"
                       className="block mb-1.5 text-xs text-white"
                     >
-                      First name
+                      Solar Plate Watts Rating
                     </label>
-                    <input
-                      type="text"
-                      id="first_name"
-                      name="first_name"
-                      className="text-white bg-white/10 border [border:linear-gradient(180deg,_#0e7fa6,_#08546d)] text-sm rounded-lg focus:ring-2 focus:ring-white block w-full px-4 py-3 shadow-sm outline-none"
-                      placeholder="First name"
-                    />
+                    <CustomSelect number={false} option={panel_watt_rating} />
                   </div>
                   <div>
                     <label
                       htmlFor="last_name"
                       className="block mb-1.5 text-xs text-white"
                     >
-                      Last name
+                      Number of Solar Plates
                     </label>
-                    <input
-                      type="text"
-                      id="last_name"
-                      name="last_name"
-                      className="text-white bg-white/10 border [border:linear-gradient(180deg,_#0e7fa6,_#08546d)] text-sm rounded-lg focus:ring-2 focus:ring-white block w-full px-4 py-3 shadow-sm outline-none"
-                      placeholder="Last name"
-                    />
+                    <CustomSelect number={true} option={number_of_panels} />
+                  </div>
+                </div>
+                <div className="grid gap-x-8 gap-y-5 md:grid-cols-2">
+                  <div>
+                    <label
+                      htmlFor="first_name"
+                      className="block mb-1.5 text-xs text-white"
+                    >
+                      Solar Inverter Company
+                    </label>
+                    <CustomSelect number={false} option={inverter_company} />
+                  </div>
+                  <div>
+                    <label
+                      htmlFor="last_name"
+                      className="block mb-1.5 text-xs text-white"
+                    >
+                      Inverter KW Rating
+                    </label>
+                    <CustomSelect number={false} option={inverter_kw_rating} />
+                  </div>
+                </div>
+                <div className="grid gap-x-8 gap-y-5 md:grid-cols-2">
+                  <div>
+                    <label
+                      htmlFor="first_name"
+                      className="block mb-1.5 text-xs text-white"
+                    >
+                      Mounting Structure
+                    </label>
+                    <CustomSelect number={false} option={mounting_structure} />
+                  </div>
+                  <div>
+                    <label
+                      htmlFor="last_name"
+                      className="block mb-1.5 text-xs text-white"
+                    >
+                      Battery Type
+                    </label>
+                    <CustomSelect number={false} option={battery_type} />
+                  </div>
+                </div>
+                <div className="grid gap-x-8 gap-y-5 md:grid-cols-2">
+                  <div>
+                    <label
+                      htmlFor="first_name"
+                      className="block mb-1.5 text-xs text-white"
+                    >
+                      Battery Company
+                    </label>
+                    <CustomSelect number={false} option={battery_company} />
+                  </div>
+                  <div>
+                    <label
+                      htmlFor="last_name"
+                      className="block mb-1.5 text-xs text-white"
+                    >
+                      Battery Ampere
+                    </label>
+                    <CustomSelect number={false} option={battery_ampere} />
                   </div>
                 </div>
               </div>
-              <Button styles={"w-full mt-10"} button_text={"Generate bill"} />
+              <Button styles={"w-full mt-10 text-white"} button_text={"Generate Quote"} />
             </form>
+          </div>
         </div>
-    </div>
-  )
+      </div>
+    </>
+  );
 }
 
-export default CalculatorPage
+export default CalculatorPage;
 
 // const CalculatorFrom = () => {
 //     return (
@@ -186,6 +316,5 @@ export default CalculatorPage
 //       </div>
 //     );
 //   };
-  
+
 //   export default CalculatorFrom;
-  
