@@ -12,7 +12,6 @@ import {
 function Stats() {
   return (
     <div className="bg-[url('/images/stats-bgimage.png')] bg-no-repeat bg-[top_right_-20rem] sm:bg-right-top lg:bg-center max-w-7xl mx-auto mb-16 md:mb-28 px-4 pt-16 pb-8 md:pb-0 lg:pb-32 sm:px-6 lg:px-8">
-      {/* <img src='./images/stats-bgimage.png' className='absolute -top-10 left-0 max-h-[870px] lg:max-h-[720px] w-full' /> */}
 
       <div className="font-poppins space-y-20">
         <div className="space-y-10">

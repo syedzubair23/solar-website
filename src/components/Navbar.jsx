@@ -15,7 +15,7 @@ import {
   XMarkIcon,
 } from '@heroicons/react/24/outline'
 import { ChevronDownIcon } from '@heroicons/react/20/solid'
-import Button from './Button'
+import { Link } from 'react-router-dom'
 
 const solutions = [
   {
@@ -74,19 +74,19 @@ function classNames(...classes) {
 export default function Navbars() {
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <Popover className="relative font-poppins">
+      <Popover className="relative font-poppins z-50">
           <div className="flex items-center justify-between py-4 md:space-x-10">
             <div className="flex justify-start lg:w-0 lg:flex-1">
-              <a href="#">
+              <Link to="/">
                 <span className="sr-only">SZSolar</span>
                 <img
                   className="h-8 w-auto sm:h-10"
                   src="./images/szsolar-logo.svg"
                   alt=""
                 />
-              </a>
+              </Link>
             </div>
-            <div className="-my-2 -mr-2 md:hidden">
+            <div className="-my-2 md:hidden">
               <Popover.Button className="inline-flex items-center justify-center rounded-md bg-[#04303F] p-2 text-white hover:bg-[#04303F]/70 hover:text-gray-200 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-[#9FE221]">
                 <span className="sr-only">Open menu</span>
                 <Bars3Icon className="h-6 w-6" aria-hidden="true" />
@@ -141,12 +141,12 @@ export default function Navbars() {
                 )}
               </Popover>
 
-              <a href="#" className="text-base font-medium text-gray-500 hover:text-[#9FE221]">
+              <Link to="/calculator" className="text-base font-medium text-gray-500 hover:text-[#9FE221]">
                 Calculator
-              </a>
-              <a href="#" className="text-base font-medium text-gray-500 hover:text-[#9FE221]">
+              </Link>
+              <Link to="/contact" className="text-base font-medium text-gray-500 hover:text-[#9FE221]">
                 Contact
-              </a>
+              </Link>
               <a href="#" className="text-base font-medium text-gray-500 hover:text-[#9FE221]">
                 Store
               </a>
@@ -167,7 +167,7 @@ export default function Navbars() {
           leaveFrom="opacity-100 scale-100"
           leaveTo="opacity-0 scale-95"
         >
-          <Popover.Panel focus className="absolute inset-x-0 top-0 origin-top-right transform p-2 transition md:hidden">
+          <Popover.Panel focus className="absolute inset-x-0 top-0 origin-top-right transform pt-2 transition md:hidden z-50">
             <div className="divide-y-2 divide-gray-50 rounded-lg bg-[#04303F] shadow-lg ring-1 ring-black ring-opacity-5">
               <div className="px-5 pt-5 pb-6">
                 <div className="flex items-center justify-between">
@@ -175,7 +175,7 @@ export default function Navbars() {
                     <img
                       className="h-8 w-auto"
                       src="./images/logo.png"
-                      alt="Your Company"
+                      alt="SZSolar"
                     />
                   </div>
                   <div className="-mr-2">
@@ -202,13 +202,13 @@ export default function Navbars() {
               </div>
               <div className="space-y-6 py-6 px-5">
                 <div className="grid grid-cols-2 gap-y-4 gap-x-8">
-                  <a href="#" className="text-base font-medium text-white hover:text-[#9FE221]">
+                  <Link to="/calculator" className="text-base font-medium text-white hover:text-[#9FE221]">
                     Calculator
-                  </a>
+                  </Link>
 
-                  <a href="#" className="text-base font-medium text-white hover:text-[#9FE221]">
+                  <Link to="/contact" className="text-base font-medium text-white hover:text-[#9FE221]">
                     Contact
-                  </a>
+                  </Link>
 
                   <a href="#" className="text-base font-medium text-white hover:text-[#9FE221]">
                     Store

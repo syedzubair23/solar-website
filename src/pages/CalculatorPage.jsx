@@ -1,79 +1,234 @@
+import html2canvas from "html2canvas";
+import jsPDF from "jspdf";
 import React from "react";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Button from "../components/Button";
 import CustomSelect from "../components/CustomSelect";
+import SolarQuote from "../components/SolarQuote";
 
-const solar_panel_company = [
-    { id: 1, item: 'CanadianSolar' },
-    { id: 2, item: 'Longi' },
-    { id: 3, item: 'JASolar' },
-    { id: 4, item: 'Inverex' },
-    { id: 5, item: 'JinkoSolar' },
-  ]
+// const solar_panel_company = [
+//     { id: spc1, item: 'CanadianSolar' },
+//     { id: spc2, item: 'Longi' },
+//     { id: spc3, item: 'JASolar' },
+//     { id: spc4, item: 'Inverex' },
+//     { id: spc5, item: 'JinkoSolar' },
+//   ]
   
-  const solar_technology = [
-    { id: 1, item: 'Mono-Perc Halfcut' },
-    { id: 2, item: 'PolyCrystalline' },
-  ]
+//   const solar_technology = [
+//     { id: st1, item: 'Mono-Perc Halfcut' },
+//     { id: st2, item: 'PolyCrystalline' },
+//   ]
   
-  const panel_watt_rating = [
-      { id: 1, item: '370 watt' },
-      { id: 2, item: '535 watt' },
-      { id: 3, item: '540 watt' },
-      { id: 4, item: '545 watt' },
-      { id: 5, item: '600 watt' },
-      { id: 6, item: '665 watt' },
-    ]
+//   const panel_watt_rating = [
+//       { id: pwr1, item: '370 watt' },
+//       { id: pwr2, item: '535 watt' },
+//       { id: pwr3, item: '540 watt' },
+//       { id: pwr4, item: '545 watt' },
+//       { id: pwr5, item: '600 watt' },
+//       { id: pwr6, item: '665 watt' },
+//     ]
   
-  const number_of_panels = [...Array(99).keys()]
+//   const number_of_panels = [...Array(99).keys()]
   
-  const inverter_company = [
-      { id: 1, item: 'Inverex' },
-      { id: 2, item: 'SolarMax' },
-      { id: 3, item: 'MaxPower' },
-      { id: 4, item: 'Fronius' },
-      { id: 5, item: 'Solis' },
-      { id: 6, item: 'Tesla' },
-      { id: 7, item: 'ABB' },
-    ]
+//   const inverter_company = [
+//       { id: ic1, item: 'Inverex' },
+//       { id: ic2, item: 'SolarMax' },
+//       { id: ic3, item: 'MaxPower' },
+//       { id: ic4, item: 'Fronius' },
+//       { id: ic5, item: 'Solis' },
+//       { id: ic6, item: 'Tesla' },
+//       { id: ic7, item: 'ABB' },
+//     ]
   
-  const inverter_kw_rating = [
-      { id: 1, item: '1.5kw' },
-      { id: 2, item: '3.2kw' },
-      { id: 3, item: '5kw' },
-      { id: 4, item: '5.6kw' },
-      { id: 5, item: '6kw' },
-      { id: 6, item: '8kw' },
-      { id: 7, item: '10kw' },
-    ]
+//   const inverter_kw_rating = [
+//       { id: ikr1, item: '1.5kw' },
+//       { id: ikr2, item: '3.2kw' },
+//       { id: ikr3, item: '5kw' },
+//       { id: ikr4, item: '5.6kw' },
+//       { id: ikr5, item: '6kw' },
+//       { id: ikr6, item: '8kw' },
+//       { id: ikr7, item: '10kw' },
+//     ]
   
-  const mounting_structure = [
-      { id: 1, item: 'L2 Galvanized Iron' },
-      { id: 2, item: 'L3 Galvanized Iron' },
-      { id: 3, item: 'Custom Iron Structure' },
-    ]  
+//   const mounting_structure = [
+//       { id: ms1, item: 'L2 Galvanized Iron' },
+//       { id: ms2, item: 'L3 Galvanized Iron' },
+//       { id: ms3, item: 'Custom Iron Structure' },
+//     ]  
   
-  const battery_type = [
-      { id: 1, item: 'Tubular' },
-      { id: 2, item: 'Lead-Acid' },
-      { id: 3, item: 'Lithium' },
-    ]  
+//   const battery_type = [
+//       { id: bt1, item: 'Tubular' },
+//       { id: bt2, item: 'Lead-Acid' },
+//       { id: bt3, item: 'Lithium' },
+//     ]  
   
-  const battery_company = [
-      { id: 1, item: 'Phoenix' },
-      { id: 2, item: 'Osaka' },
-      { id: 3, item: 'Inverex' },
-    ]  
+//   const battery_company = [
+//       { id: bc1, item: 'Phoenix' },
+//       { id: bc2, item: 'Osaka' },
+//       { id: bc3, item: 'Inverex' },
+//     ]  
   
-  const battery_ampere = [
-      { id: 1, item: '185AH' },
-      { id: 2, item: '200AH' },
-    ]  
+//   const battery_ampere = [
+//       { id: ba1, item: '185AH' },
+//       { id: ba2, item: '200AH' },
+//     ]  
 
+  const calculator_option = [
+    {
+      id: 1,
+      label: "Solar Company",
+      options: [
+        { id: 'spc1', title: 'solar_company', item: 'CanadianSolar' },
+        { id: 'spc2', title: 'solar_company', item: 'Longi' },
+        { id: 'spc3', title: 'solar_company', item: 'JASolar' },
+        { id: 'spc4', title: 'solar_company', item: 'Inverex' },
+        { id: 'spc5', title: 'solar_company', item: 'JinkoSolar' },
+      ]
+    },
+    {
+      id: 2,
+      label: "Solar Technology",
+      options: [
+        { id: 'st1', title: 'solar_technology', item: 'Mono-Perc Halfcut' },
+        { id: 'st2', title: 'solar_technology', item: 'PolyCrystalline' },
+      ]
+    },
+    {
+      id: 3,
+      label: "Solar Plate Watts Rating",
+      options: [
+        { id: 'pwr1', title: 'solar_rating', item: '370 watt' },
+        { id: 'pwr2', title: 'solar_rating', item: '535 watt' },
+        { id: 'pwr3', title: 'solar_rating', item: '540 watt' },
+        { id: 'pwr4', title: 'solar_rating', item: '545 watt' },
+        { id: 'pwr5', title: 'solar_rating', item: '600 watt' },
+        { id: 'pwr6', title: 'solar_rating', item: '665 watt' },
+      ]
+    },
+    {
+      id: 4,
+      label: "Number of Solar Plates",
+      options: [...Array(99).keys()]
+    },
+    {
+      id: 5,
+      label: "Solar Inverter Company",
+      options: [
+        { id: 'ic1', title: 'inverter_company', item: 'Inverex' },
+        { id: 'ic2', title: 'inverter_company', item: 'SolarMax' },
+        { id: 'ic3', title: 'inverter_company', item: 'MaxPower' },
+        { id: 'ic4', title: 'inverter_company', item: 'Fronius' },
+        { id: 'ic5', title: 'inverter_company', item: 'Solis' },
+        { id: 'ic6', title: 'inverter_company', item: 'Tesla' },
+        { id: 'ic7', title: 'inverter_company', item: 'ABB' },
+      ]
+    },
+    {
+      id: 6,
+      label: "Inverter KW Rating",
+      options: [
+        { id: 'ikr1', title: 'inverter_rating', item: '1.5kw' },
+        { id: 'ikr2', title: 'inverter_rating', item: '3.2kw' },
+        { id: 'ikr3', title: 'inverter_rating', item: '5kw' },
+        { id: 'ikr4', title: 'inverter_rating', item: '5.6kw' },
+        { id: 'ikr5', title: 'inverter_rating', item: '6kw' },
+        { id: 'ikr6', title: 'inverter_rating', item: '8kw' },
+        { id: 'ikr7', title: 'inverter_rating', item: '10kw' },
+      ]
+    },
+    {
+      id: 7,
+      label: "Mounting Structure",
+      options: [
+        { id: 'ms1', title: 'mounting_structure', item: 'L2 Galvanized Iron' },
+        { id: 'ms2', title: 'mounting_structure', item: 'L3 Galvanized Iron' },
+        { id: 'ms3', title: 'mounting_structure', item: 'Custom Iron Structure' },
+      ]  
+    },
+    {
+      id: 8,
+      label: "Battery Type",
+      options: [
+        { id: 'bt1', title: 'battery_type', item: 'Tubular' },
+        { id: 'bt2', title: 'battery_type', item: 'Lead-Acid' },
+        { id: 'bt3', title: 'battery_type', item: 'Lithium' },
+      ]  
+    },
+    {
+      id: 9,
+      label: "Battery Company",
+      options: [
+        { id: "bc1", title: 'battery_company', item: 'Phoenix' },
+        { id: "bc2", title: 'battery_company', item: 'Osaka' },
+        { id: "bc3", title: 'battery_company', item: 'Inverex' },
+      ]  
+    },
+    {
+      id: 10,
+      label: "Battery Ampere",
+      options: [
+        { id: "ba1", title: 'battery_ampere', item: '185AH' },
+        { id: "ba2", title: 'battery_ampere', item: '200AH' },
+      ]  
+    },
+  ]
 
 function CalculatorPage() {
+  const [unitRange, setUnitRange] = useState(300)
+  const unit_range = Number(unitRange)
+  const navigate = useNavigate();
+
+  function GenerateInvoice() {
+        html2canvas(document.querySelector("#quoteCapture")).then((canvas) => {
+          const imgData = canvas.toDataURL('image/png', 1.0);
+          const pdf = new jsPDF({
+            orientation: 'portrait',
+            unit: 'pt',
+            format: 'a4'
+          });
+          pdf.internal.scaleFactor = 1;
+          const imgProps= pdf.getImageProperties(imgData);
+          const pdfWidth = pdf.internal.pageSize.getWidth();
+          const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
+          pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
+          pdf.save('solar-quotation.pdf');
+          console.log(pdfWidth, pdfHeight)
+          console.log(imgProps)
+          console.log(pdf.internal)
+        });
+      }
+  
+  const system_capcity = () => {
+    if (unit_range >=300 && unit_range <=350) {
+      return "3"
+    } 
+    else if (unit_range >=351 && unit_range <=600) {
+      return "5"
+    }
+    else if (unit_range >=601 && unit_range <=1200) {
+      return "10"
+    }
+    else if (unit_range >=1201 && unit_range <=1800) {
+      return "15"
+    }
+    else if (unit_range >=1801 && unit_range <=2400) {
+      return "20"
+    }
+    else if (unit_range >=2401 && unit_range <=3000) {
+      return "25"
+    }
+    else if (unit_range >=3001 && unit_range <=3600) {
+      return "30"
+    }
+    else if (unit_range >=3601 && unit_range <=4200) {
+      return "35"
+    }
+  }     
+
   return (
     <>
-    <div className="max-w-7xl mx-auto py-16 md:py-28 mb-16 md:mb-28 bg-[url('/images/calculatorpage-bgimage.png')] bg-no-repeat bg-cover">
+    <div className="max-w-7xl mx-auto py-16 md:py-28 mb-16 md:mb-28 bg-[url('/images/calculatorpage-bgimage.png')] bg-no-repeat bg-cover font-poppins">
       {/* <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-28 mb-16">
         <img
           src="./images/calculatorpage-bgimage.png"
@@ -91,9 +246,9 @@ function CalculatorPage() {
                 </h3>
                 <div className="space-y-6">
                   <h4 className="text-xl md:text-2xl font-semibold text-[#041014] text-center">
-                    300 Units
+                    {unitRange} Units
                   </h4>
-                  <input type="range" className="bg-[#9FE221] w-full" />
+                  <input type="range" className="accent-[#9FE221] focus:accent-lime-400 w-full" min="0" max="4500" step="10" onChange={(e) => setUnitRange(e.target.value)}  />
                 </div>
               </div>
               <div className="space-y-10 md:space-y-14">
@@ -101,121 +256,36 @@ function CalculatorPage() {
                   System Capacity
                 </h3>
                 <h4 className="text-xl md:text-2xl font-semibold text-[#041014] text-center">
-                  3KW Solar System
+                {!(unit_range >= 0 && unit_range < 300 || unit_range > 4200) ? `You require ${system_capcity()}KW Solar System`
+                : <div><p className="text-lg">{`Your monthly unit consumption is ${(unit_range >= 0 && unit_range < 300) ? "low" : "high"}. Contact us for FREE site evaluation and Quotation.`}</p>
+                <Button styles={"text-white mt-6"} button_text={'Contact Us'} handleClick={() => navigate("/contact")} /></div>}
                 </h4>
               </div>
           </div>
           <div className="px-4 sm:px-6 lg:px-8">
+            <h3 className="text-3xl font-semibold text-white text-center mb-10">
+                Get Estimated Quote
+              </h3>
             <form
               action=""
               className="max-w-xl md:max-w-3xl mx-auto font-poppins"
             >
-              <h3 className="text-3xl font-semibold text-white text-center mb-10">
-                Get Estimated Quote
-              </h3>
-              <div className="space-y-6">
                 <div className="grid gap-x-8 gap-y-5 md:grid-cols-2">
-                  <div>
-                    <label
-                      htmlFor="first_name"
-                      className="block mb-1.5 text-xs text-white"
-                    >
-                      Solar Company
-                    </label>
-                    <CustomSelect number={false} option={solar_panel_company} />
-                  </div>
-                  <div>
-                    <label
-                      htmlFor="last_name"
-                      className="block mb-1.5 text-xs text-white"
-                    >
-                      Solar Technology
-                    </label>
-                    <CustomSelect number={false} option={solar_technology} />
-                  </div>
+                  {calculator_option.map((opt) => (
+                    <div key={opt.id}>
+                      <label
+                        className="block mb-1.5 text-xs text-white"
+                      >
+                        {opt.label}
+                      </label>
+                      {opt.label === 'Number of Solar Plates' ? <CustomSelect id={opt.id} number={true} option={opt.options} calculator_option={calculator_option} label={opt.label} /> :
+                      <CustomSelect id={opt.id} number={false} option={opt.options} calculator_option={calculator_option} label={opt.label} />}
+                    </div>
+                  ))}
                 </div>
-                <div className="grid gap-x-8 gap-y-5 md:grid-cols-2">
-                  <div>
-                    <label
-                      htmlFor="first_name"
-                      className="block mb-1.5 text-xs text-white"
-                    >
-                      Solar Plate Watts Rating
-                    </label>
-                    <CustomSelect number={false} option={panel_watt_rating} />
-                  </div>
-                  <div>
-                    <label
-                      htmlFor="last_name"
-                      className="block mb-1.5 text-xs text-white"
-                    >
-                      Number of Solar Plates
-                    </label>
-                    <CustomSelect number={true} option={number_of_panels} />
-                  </div>
-                </div>
-                <div className="grid gap-x-8 gap-y-5 md:grid-cols-2">
-                  <div>
-                    <label
-                      htmlFor="first_name"
-                      className="block mb-1.5 text-xs text-white"
-                    >
-                      Solar Inverter Company
-                    </label>
-                    <CustomSelect number={false} option={inverter_company} />
-                  </div>
-                  <div>
-                    <label
-                      htmlFor="last_name"
-                      className="block mb-1.5 text-xs text-white"
-                    >
-                      Inverter KW Rating
-                    </label>
-                    <CustomSelect number={false} option={inverter_kw_rating} />
-                  </div>
-                </div>
-                <div className="grid gap-x-8 gap-y-5 md:grid-cols-2">
-                  <div>
-                    <label
-                      htmlFor="first_name"
-                      className="block mb-1.5 text-xs text-white"
-                    >
-                      Mounting Structure
-                    </label>
-                    <CustomSelect number={false} option={mounting_structure} />
-                  </div>
-                  <div>
-                    <label
-                      htmlFor="last_name"
-                      className="block mb-1.5 text-xs text-white"
-                    >
-                      Battery Type
-                    </label>
-                    <CustomSelect number={false} option={battery_type} />
-                  </div>
-                </div>
-                <div className="grid gap-x-8 gap-y-5 md:grid-cols-2">
-                  <div>
-                    <label
-                      htmlFor="first_name"
-                      className="block mb-1.5 text-xs text-white"
-                    >
-                      Battery Company
-                    </label>
-                    <CustomSelect number={false} option={battery_company} />
-                  </div>
-                  <div>
-                    <label
-                      htmlFor="last_name"
-                      className="block mb-1.5 text-xs text-white"
-                    >
-                      Battery Ampere
-                    </label>
-                    <CustomSelect number={false} option={battery_ampere} />
-                  </div>
-                </div>
+              <div className="cursor-pointer mt-10" onClick={GenerateInvoice}>
+                <Button styles={"w-full text-white"} button_text={"Generate Quote"} />
               </div>
-              <Button styles={"w-full mt-10 text-white"} button_text={"Generate Quote"} />
             </form>
           </div>
         </div>
@@ -225,96 +295,3 @@ function CalculatorPage() {
 }
 
 export default CalculatorPage;
-
-// const CalculatorFrom = () => {
-//     return (
-//       <div className="relative bg-white w-full h-[1428px] overflow-hidden text-center text-lg text-white font-poppins">
-//         <img
-//           className="absolute top-[0px] left-[0px] w-[1440px] h-[1428px] object-cover"
-//           alt=""
-//           src="../image-3@2x.png"
-//         />
-//         <div className="absolute top-[324px] left-[0px] [background:linear-gradient(101.27deg,_#31640b,_#397c08_50%,_#78bb21)] w-[1441px] h-[357px]" />
-//         <div className="absolute top-[813px] left-[324px] w-[792px] h-[477px]">
-//           <div className="absolute top-[421px] left-[0px] rounded-[6px] [background:linear-gradient(90deg,_#31640b,_rgba(159,_226,_33,_0.6))] shadow-[0px_4px_8px_rgba(0,_0,_0,_0.25)] w-[792px] flex flex-row p-[16px_24px] box-border items-start justify-start">
-//             <div className="flex-1 relative font-semibold inline-block">
-//               Generate Bill
-//             </div>
-//           </div>
-//           <div className="absolute top-[0px] left-[0px] w-[792px] h-[378px] text-left text-gray-1100">
-//             <div className="absolute top-[0px] left-[0px] rounded-[8px] bg-gray-1000 w-[379px] h-[50px]" />
-//             <div className="absolute top-[82px] left-[0px] rounded-[8px] bg-gray-1000 w-[379px] h-[50px]" />
-//             <div className="absolute top-[164px] left-[0px] rounded-[8px] bg-gray-1000 w-[379px] h-[50px]" />
-//             <div className="absolute top-[246px] left-[0px] rounded-[8px] bg-gray-1000 w-[379px] h-[50px]" />
-//             <div className="absolute top-[328px] left-[0px] rounded-[8px] bg-gray-1000 w-[379px] h-[50px]" />
-//             <div className="absolute top-[0px] left-[413px] rounded-[8px] bg-gray-1000 w-[379px] h-[50px]" />
-//             <div className="absolute top-[82px] left-[413px] rounded-[8px] bg-gray-1000 w-[379px] h-[50px]" />
-//             <div className="absolute top-[164px] left-[413px] rounded-[8px] bg-gray-1000 w-[379px] h-[50px]" />
-//             <div className="absolute top-[246px] left-[413px] rounded-[8px] bg-gray-1000 w-[379px] h-[50px]" />
-//             <div className="absolute top-[328px] left-[413px] rounded-[8px] bg-gray-1000 w-[379px] h-[50px]" />
-//             <div className="absolute top-[13px] left-[22px] leading-[24px] inline-block w-[357px] h-[24px]">
-//               First name
-//             </div>
-//             <div className="absolute top-[95px] left-[22px] leading-[24px] inline-block w-[357px] h-[24px]">
-//               First name
-//             </div>
-//             <div className="absolute top-[177px] left-[22px] leading-[24px] inline-block w-[357px] h-[24px]">
-//               First name
-//             </div>
-//             <div className="absolute top-[259px] left-[22px] leading-[24px] inline-block w-[357px] h-[24px]">
-//               First name
-//             </div>
-//             <div className="absolute top-[341px] left-[22px] leading-[24px] inline-block w-[357px] h-[24px]">
-//               First name
-//             </div>
-//             <div className="absolute top-[13px] left-[435px] leading-[24px] inline-block w-[357px] h-[24px]">
-//               First name
-//             </div>
-//             <div className="absolute top-[95px] left-[435px] leading-[24px] inline-block w-[357px] h-[24px]">
-//               First name
-//             </div>
-//             <div className="absolute top-[177px] left-[435px] leading-[24px] inline-block w-[357px] h-[24px]">
-//               First name
-//             </div>
-//             <div className="absolute top-[259px] left-[435px] leading-[24px] inline-block w-[357px] h-[24px]">
-//               First name
-//             </div>
-//             <div className="absolute top-[341px] left-[435px] leading-[24px] inline-block w-[357px] h-[24px]">
-//               First name
-//             </div>
-//           </div>
-//         </div>
-//         <div className="absolute top-[411px] left-[121px] w-[1200px] flex flex-row items-start justify-start gap-[64px] text-3xl">
-//           <div className="flex-1 flex flex-col items-center justify-center gap-[56px]">
-//             <h3 className="m-[0] relative text-[inherit] leading-[45px] font-semibold font-inherit inline-block">
-//               Electricity Units (Monthly)
-//             </h3>
-//             <div className="self-stretch flex flex-col items-center justify-center gap-[24px] text-2xl text-gray-700">
-//               <h4 className="m-[0] self-stretch relative text-[inherit] font-semibold font-inherit inline-block">
-//                 300 Units
-//               </h4>
-//               <input
-//                 className="[border:none] font-medium font-inter text-[12px] bg-[transparent] self-stretch relative rounded-[8px] shadow-[0px_2px_4px_rgba(0,_0,_0,_0.25)] h-[24px] shrink-0"
-//                 type="text"
-//                 placeholder="25%"
-//               />
-//             </div>
-//           </div>
-//           <div className="flex-1 flex flex-col items-center justify-center gap-[56px]">
-//             <h3 className="m-[0] self-stretch relative text-[inherit] leading-[45px] font-semibold font-inherit inline-block">
-//               System Capcity
-//             </h3>
-//             <h4 className="m-[0] self-stretch relative text-2xl font-semibold font-inherit text-gray-700 inline-block">
-//               3KW Solar System
-//             </h4>
-//           </div>
-//         </div>
-//         <div className="absolute top-[102px] left-[372px] text-4xl tracking-[0.07em] font-fjalla-one text-left inline-block">
-//           Solar Calculator
-//         </div>
-//         <div className="absolute top-[314.93px] left-[787.15px] rounded-[200px] [background:linear-gradient(90deg,_#1a2980,_#26d0ce)] [filter:blur(650px)] w-[441.27px] h-[549.98px] [transform:_rotate(-150deg)] [transform-origin:0_0]" />
-//       </div>
-//     );
-//   };
-
-//   export default CalculatorFrom;

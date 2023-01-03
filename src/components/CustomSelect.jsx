@@ -1,12 +1,20 @@
 import { Fragment, useState, useEffect } from "react";
 import { Combobox, Transition } from "@headlessui/react";
 import { CheckIcon, ChevronDownIcon } from "@heroicons/react/20/solid";
+import { useCalculatorContext } from "../context/calculator_context";
 
 
-export default function CustomSelect({ option, number }) {
+export default function CustomSelect({ option, number, label}) {
   const [query, setQuery] = useState("");
-  const [selected, setSelected] = useState(number ? 1 : option[0]);
-  console.log(selected)
+  const [selected, setSelected] = useState(number ? 4 : option[0]);
+  const { selectOption } = useCalculatorContext();
+  
+
+  const handleChange = (val) => {
+    setSelected(val)
+    selectOption(val)
+}
+
   const filteredoption =
     query === ''
       ? option
@@ -24,7 +32,9 @@ export default function CustomSelect({ option, number }) {
 
   return (
     <div className="w-full">
-      <Combobox value={selected} onChange={setSelected}>
+      <Combobox value={selected} onChange={handleChange}
+        name={label}
+        >
         <div className="relative mt-1">
           <div className="relative w-full cursor-default overflow-hidden rounded-lg text-left shadow-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-gray-300 sm:text-sm">
             <Combobox.Input

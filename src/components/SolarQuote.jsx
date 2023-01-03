@@ -1,19 +1,81 @@
-import React from 'react'
+import React, {useEffect} from 'react'
+import { jsPDF } from 'jspdf'
+import html2canvas from 'html2canvas'
+import { useCalculatorContext } from '../context/calculator_context'
+
+const initial_options = [
+    {
+      id: 'spc1',
+      title: "solar_company",
+      options: 'CanadianSolar',
+    },
+    {
+      id: 'st1',
+      title: "solar_technology",
+      options: 'Mono-Perc Halfcut',
+    },
+    {
+      id: 'pwr1',
+      title: "solar_rating",
+      options: '370 watt',
+    },
+    {
+      id: 1,
+      title: "no_of_plates",
+      options: 4
+    },
+    {
+      id: 'ic1',
+      title: "inverter_company",
+      options: 'Inverex',
+    },
+    {
+      id: 'ikr1',
+      title: "inverter_rating",
+      options: '1.5kw',
+    },
+    {
+      id: 'ms1',
+      title: "mounting_structure",
+      options: 'L2 Galvanized Iron',
+    },
+    {
+      id: 'bt1',
+      title: "battery_type",
+      options: 'Tubular',
+    },
+    {
+      id: 'bc1',
+      title: "battery_company",
+      options: 'Phoenix',
+    },
+    {
+      id: 'ba1',
+      title: "battery_ampere",
+      options: '185AH',
+    },
+  ]
 
 function SolarQuote() {
+    const { val } = useCalculatorContext()
+
+    console.log(val)
+
+    
+
   return (
-    <div className="bg-[#041014] bg-gray-500 font-poppins max-h-[1100px] p-16">
-        <div className='flex items-center justify-between pb-16'>
+    <div id="quoteCapture" className="bg-white/70 font-poppins text-[#041014] py-16 px-10 max-w-3xl mx-auto">
+        <div className='flex items-center justify-between'>
         <img
-            className="h-8 w-auto"
-            src="./images/szsolar-logo.svg"
+            className="h-10 w-auto"
+            src="./images/szsolar-wb-logo.svg"
             alt=""
         />
-            <p className=' text-white'>Date:
-            <span className='ml-2 border-b border-gray-400 font-medium'>31-12-2022</span></p>
+            <p>Date:
+            <span className='ml-2 border-b border-gray-500 font-medium leading-relaxed'>31-12-2022</span></p>
         </div>
-        <div className="flex justify-center items-center h-full">
-            <table className="px-2.5 py-5 max-w-2xl text-center shadow-2xl">
+        <h2 className='font-fjalla_one tracking-wide text-4xl font-semibold mt-16 mb-8 text-center'>Estimated Solar Quote</h2>
+            <table className="text-center shadow-2xl border-collapse">
                 <thead className='text-white [background:linear-gradient(_101.27deg,_#31640B_0%,_#397C08_50.67%,_#78BB21_101.34%)] text-lg w-full'>
                     <tr className=''>
                         <th >Sr. No.</th>
@@ -109,9 +171,8 @@ function SolarQuote() {
                 </tfoot>
 
             </table>
-        </div>
     </div>
-  )
+)
 }
 
 export default SolarQuote
