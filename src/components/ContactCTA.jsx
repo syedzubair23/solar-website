@@ -9,9 +9,9 @@ function ContactCTA() {
                 <div className="flex flex-col gap-y-4">
                     <h3 className='text-3xl sm:text-4xl text-center md:text-left tracking-wide font-fjalla_one text-[#D9F4FD] leading-tight max-w-[24ch] capitalize'>Call us today for free
     consultations</h3>
-                    <p className='text-sm text-center md:text-left text-[#D9F4FD]/50'>Give us 10 minutes, and we'll evaluate your savings potential.</p>
+                    <p className='text-sm text-center md:text-left text-[#D9F4FD]/50 leading-relaxed'>Give us 10 minutes, and we'll evaluate your savings potential.</p>
                 </div>
-                <Button styles={'shadow-[0px_4px_8px_rgba(0,0,0,0.25)] text-sm'} button_text={'Call +92 123 1233212'} />
+                <Button styles={'shadow-[0px_4px_8px_rgba(0,0,0,0.25)] text-sm text-white'} button_text={'Call +92 123 1233212'} />
             </div>
         </div>
     </div>

@@ -38,7 +38,7 @@ function OfferCard() {
                                 <img src="./images/decorated_divider.svg" className='mx-auto max-w-[62px]' alt="" />
                             </div>
                         </div>
-                        <p className='text-sm text-[#D9F4FD] text-center'>{detail.desc}</p>
+                        <p className='text-sm text-[#D9F4FD] text-center leading-relaxed'>{detail.desc}</p>
                     </div>
                 </div>
             ))

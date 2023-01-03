@@ -18,7 +18,7 @@ function App() {
           <Route path="/contact" element={<ContactPage />} />
         </Routes>
       </ScrollToTop>
-      <SolarQuote />
+      {/* <SolarQuote /> */}
       <Footer />
     </div>
   );

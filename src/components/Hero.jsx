@@ -10,11 +10,11 @@ function Hero() {
         <img src='./images/hero-bgimage.png' className='absolute -top-36 -left-6 md:max-h-[800px] z-0' />
         <div className='font-poppins grid grid-cols-1 md:grid-cols-2 items-center justify-items-center md:justify-items-end gap-x-8 md:gap-x-4 gap-y-16 z-50'>
             <div className="space-y-8">
-                <h1 className='font-fjalla_one text-white text-5xl sm:text-6xl md:text-7xl text-center md:text-left lg:text-8xl leading-snug'>Join the<br />
-                    Solar Energy<br />
-                    <span className='text-[#9FE221]'>Revolution</span>
+                <h1 className='font-fjalla_one text-white text-5xl sm:text-6xl md:text-7xl text-center md:text-left lg:text-8xl'>Join the
+                    <span className='block mt-2'>Solar Energy</span>
+                    <span className='text-[#9FE221] block mt-2'>Revolution</span>
                 </h1>
-                <p className='text-base px-4 sm:px-6 md:px-0 text-[#D9F4FD] mx-auto max-w-prose md:mx-0 md:max-w-none text-center md:text-left'>If you are tired of huge bill prices, constant power outrage, & blackouts, and you want permanent solution of these problems. We got you covered because we will solve your problem by harnessing the power of sun to provide you free electricity.</p>
+                <p className='text-base px-4 sm:px-6 md:px-0 text-[#D9F4FD] mx-auto max-w-prose md:mx-0 md:max-w-none text-center md:text-justify leading-relaxed'>If you are tired of huge bill prices, constant power outrage, & blackouts, and you want permanent solution of these problems. We got you covered because we will solve your problem by harnessing the power of sun to provide you free electricity.</p>
                 <div className='flex gap-2 place-content-center md:justify-start'>
                     <Button styles={'text-white'} button_text={'Get Quote'} handleClick={()=> navigate("/contact")} />
                     <Button styles={'[background:none] border-2 [border:linear-gradient(90deg,_#31640b,_rgba(159,_226,_33,_0.6))] text-[#9FE221]'} button_text={'Calculator'} handleClick={()=> navigate("/calculator")} />

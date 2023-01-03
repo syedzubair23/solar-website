@@ -49,7 +49,7 @@ function ProjectsCard() {
                     />
                   </div>
                 </div>
-                <p className="text-sm text-[#D9F4FD] text-justify max-w-prose mx-auto">
+                <p className="text-sm text-[#D9F4FD] text-justify max-w-prose mx-auto leading-relaxed">
                   {detail.desc}
                 </p>
               </div>

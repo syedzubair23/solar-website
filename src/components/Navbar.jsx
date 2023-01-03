@@ -93,7 +93,7 @@ export default function Navbars() {
               </Popover.Button>
             </div>
             <Popover.Group as="nav" className="hidden space-x-10 md:flex">
-              <Popover className="relative">
+              {/* <Popover className="relative">
                 {({ open }) => (
                   <>
                     <Popover.Button
@@ -139,23 +139,22 @@ export default function Navbars() {
                     </Transition>
                   </>
                 )}
-              </Popover>
+              </Popover> */}
 
+              <Link to="/" className="text-base font-medium text-gray-500 hover:text-[#9FE221]">
+                Home
+              </Link>
+              <a href='#about' className="text-base font-medium text-gray-500 hover:text-[#9FE221]">
+                About
+              </a>
               <Link to="/calculator" className="text-base font-medium text-gray-500 hover:text-[#9FE221]">
                 Calculator
               </Link>
               <Link to="/contact" className="text-base font-medium text-gray-500 hover:text-[#9FE221]">
                 Contact
               </Link>
-              <a href="#" className="text-base font-medium text-gray-500 hover:text-[#9FE221]">
-                Store
-              </a>
 
             </Popover.Group>
-            {/* <div className="hidden items-center justify-end md:flex md:flex-1 lg:w-0">
-              <Button styles={'px-3.5 py-2.5 [background:none]'} button_text={'Sign in'} />
-              <Button styles={'px-3.5 py-2.5 ml-8'} button_text={'Sign up'} />
-            </div> */}
           </div>
 
         <Transition
@@ -168,7 +167,7 @@ export default function Navbars() {
           leaveTo="opacity-0 scale-95"
         >
           <Popover.Panel focus className="absolute inset-x-0 top-0 origin-top-right transform pt-2 transition md:hidden z-50">
-            <div className="divide-y-2 divide-gray-50 rounded-lg bg-[#04303F] shadow-lg ring-1 ring-black ring-opacity-5">
+            <div className="divide-y-2 divide-gray-50/50 rounded-lg bg-[#04303F] shadow-lg ring-1 ring-black ring-opacity-5">
               <div className="px-5 pt-5 pb-6">
                 <div className="flex items-center justify-between">
                   <div>
@@ -185,7 +184,7 @@ export default function Navbars() {
                     </Popover.Button>
                   </div>
                 </div>
-                <div className="mt-6">
+                {/* <div className="mt-6">
                   <nav className="grid gap-y-8">
                     {solutions.map((item) => (
                       <a
@@ -198,37 +197,28 @@ export default function Navbars() {
                       </a>
                     ))}
                   </nav>
-                </div>
+                </div> */}
               </div>
-              <div className="space-y-6 py-6 px-5">
-                <div className="grid grid-cols-2 gap-y-4 gap-x-8">
-                  <Link to="/calculator" className="text-base font-medium text-white hover:text-[#9FE221]">
+              <div className="py-16">
+                <div className="grid grid-cols-1 divide-y-2 divide-gray-500/10">
+                  
+                <Link to="/" className="text-6xl  py-6 text-center font-fjalla_one font-medium text-white hover:text-[#9FE221]">
+                    Home
+                </Link>
+
+                  <a href="#about" className="text-6xl py-6 text-center font-fjalla_one font-medium text-white hover:text-[#9FE221]">
+                    About
+                  </a>
+
+                  <Link to="/calculator" className="text-6xl py-6 text-center font-fjalla_one font-medium text-white hover:text-[#9FE221]">
                     Calculator
                   </Link>
 
-                  <Link to="/contact" className="text-base font-medium text-white hover:text-[#9FE221]">
+                  <Link to="/contact" className="text-6xl py-6 text-center font-fjalla_one font-medium text-white hover:text-[#9FE221]">
                     Contact
                   </Link>
 
-                  <a href="#" className="text-base font-medium text-white hover:text-[#9FE221]">
-                    Store
-                  </a>
-                
                 </div>
-                {/* <div>
-                  <a
-                    href="#"
-                    className="flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-indigo-700"
-                  >
-                    Sign up
-                  </a>
-                  <p className="mt-6 text-center text-base font-medium text-gray-500">
-                    Existing customer?{' '}
-                    <a href="#" className="text-indigo-600 hover:text-indigo-500">
-                      Sign in
-                    </a>
-                  </p>
-                </div> */}
               </div>
             </div>
           </Popover.Panel>
