@@ -8,26 +8,33 @@ import {
   PencilSquareIcon,
   UserGroupIcon,
 } from "@heroicons/react/20/solid";
+import { motion } from "framer-motion";
+import { fadeIn, staggerContainer, textVariant, textVariant2 } from "../utils/motion";
 
 function Stats() {
   return (
     <div className="bg-[url('/images/stats-bgimage.png')] bg-no-repeat bg-[top_right_-20rem] sm:bg-right-top lg:bg-center max-w-7xl mx-auto mb-16 md:mb-28 px-4 pt-16 pb-8 md:pb-0 lg:pb-32 sm:px-6 lg:px-8">
 
-      <div className="font-poppins space-y-20">
+      <motion.div
+        variants={staggerContainer}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: false, amount: "0.25" }}
+        className="font-poppins space-y-20">
         <div className="space-y-10">
-          <h2 className="font-fjalla_one tracking-wide text-3xl leading-snug md:leading-tight sm:text-5xl mx-auto md:mx-0 max-w-[17ch] text-[#9FE221] text-center md:text-left">
+          <motion.h2 variants={textVariant2} className="font-fjalla_one tracking-wide text-3xl leading-snug md:leading-tight sm:text-5xl mx-auto md:mx-0 max-w-[17ch] text-[#9FE221] text-center md:text-left">
             We are Pakistan's Famous Solar Brand
-          </h2>
-          <p className="text-base text-[#D9F4FD] text-center md:text-left mx-auto md:mx-0 max-w-prose leading-relaxed">
+          </motion.h2>
+          <motion.p variants={textVariant(1.2)} className="text-base text-[#D9F4FD] text-center md:text-left mx-auto md:mx-0 max-w-prose leading-relaxed">
             We are providing solar solutions in Pakistan since 2012. We have
             satisfied clients all over the Pakistan. Our skillful engineers are
             always cooperative and give clear guidance to customers. We have
             almost installed 650+ projects ranging from domestic to industrial
             projects in all these years.
-          </p>
+          </motion.p>
         </div>
         {/* <div className=" bg-[url('images/stats-bgeffectimage.png')] bg-no-repeat bg-[center_left_10rem] rounded-3xl"> */}
-        <div className="relative grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-12 gap-y-14 justify-items-center px-8 py-16 bg-white/10 shadow-[0px_0px_40px_rgba(0,0,0,0.25)] rounded-3xl backdrop-blur-3xl overflow-hidden">
+        <motion.div variants={fadeIn('left', 'tween', 1.3, 1)} className="relative grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-12 gap-y-14 justify-items-center px-8 py-16 bg-white/10 shadow-[0px_0px_40px_rgba(0,0,0,0.25)] rounded-3xl backdrop-blur-3xl overflow-hidden">
             <div className="w-[98%] sm:w-[500px] h-72 rotate-12 rounded-[185px] absolute blur-[115px] top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2 [background:linear-gradient(_90deg,_#1A6E80_0%,_#418282_100%)]"></div>
           <div className="w-[196px] h-[196px] rounded-[64px] rotate-45 shadow-[0px_0px_22px_rgba(0,0,0,0.25)] bg-white/5 border box-border border-[#6A6A6A] flex place-content-center pb-6 pr-6">
             <div className="flex flex-col gap-2 items-center justify-center -rotate-45">
@@ -73,9 +80,9 @@ function Stats() {
               </p>
             </div>
           </div>
-        </div>
+        </motion.div>
         {/* </div> */}
-      </div>
+      </motion.div>
     </div>
   );
 }

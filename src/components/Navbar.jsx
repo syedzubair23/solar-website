@@ -16,6 +16,8 @@ import {
 } from '@heroicons/react/24/outline'
 import { ChevronDownIcon } from '@heroicons/react/20/solid'
 import { Link } from 'react-router-dom'
+import { motion } from 'framer-motion'
+import { navVariants } from '../utils/motion'
 
 const solutions = [
   {
@@ -73,8 +75,8 @@ function classNames(...classes) {
 
 export default function Navbars() {
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <Popover className="relative font-poppins z-50">
+    <motion.div variants={navVariants} initial="hidden" whileInView="show" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-50">
+      <Popover className="relative font-poppins z-20">
           <div className="flex items-center justify-between py-4 md:space-x-10">
             <div className="flex justify-start lg:w-0 lg:flex-1">
               <Link to="/">
@@ -166,7 +168,7 @@ export default function Navbars() {
           leaveFrom="opacity-100 scale-100"
           leaveTo="opacity-0 scale-95"
         >
-          <Popover.Panel focus className="absolute inset-x-0 top-0 origin-top-right transform pt-2 transition md:hidden z-50">
+          <Popover.Panel focus className="absolute inset-x-0 top-0 origin-top-right transform pt-2 transition md:hidden z-20">
             <div className="divide-y-2 divide-gray-50/50 rounded-lg bg-[#04303F] shadow-lg ring-1 ring-black ring-opacity-5">
               <div className="px-5 pt-5 pb-6">
                 <div className="flex items-center justify-between">
@@ -201,7 +203,7 @@ export default function Navbars() {
               </div>
               <div className="py-16">
                 <div className="grid grid-cols-1 divide-y-2 divide-gray-500/10">
-                  
+
                 <Link to="/" className="text-6xl  py-6 text-center font-fjalla_one font-medium text-white hover:text-[#9FE221]">
                     Home
                 </Link>
@@ -224,6 +226,6 @@ export default function Navbars() {
           </Popover.Panel>
         </Transition>
       </Popover>
-    </div>
+    </motion.div>
   )
 }

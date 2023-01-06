@@ -1,7 +1,8 @@
 import React, { useEffect } from "react";
-import { motion } from "framer-motion";
+import { motion, spring } from "framer-motion";
 import { useState } from "react";
 import { useRef } from "react";
+import { staggerContainer, textVariant2 } from "../utils/motion";
 
 const testimonials = [
     {
@@ -43,20 +44,40 @@ const testimonials = [
 
 function Testimonials() {
   const [width, setWidth] = useState(0);
+  const [position, setPosition] = useState(0)
   const crousel = useRef()
+
+  const mod = (n, m) => {
+    let result = n % m;
+
+    // return a positive value
+    return result >= 0 ? result : result + m;
+  }
 
   useEffect(() => {
     // console.log(crousel.current.scrollWidth, crousel.current.offsetWidth)
     setWidth(crousel.current.scrollWidth - crousel.current.offsetWidth)
   }, [])
-  
 
+  useEffect(() => {
+      setTimeout(() => {
+          setPosition(position + 1)
+          if (position === testimonials.length - 1) {
+            setPosition(0)
+          }
+        }, [1500])
+  }, [position])
+  
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16 md:mb-28">
-      <div className="font-poppins space-y-20">
-        <h2 className="font-fjalla_one tracking-wide text-3xl leading-snug md:leading-tight sm:text-5xl mx-auto md:mx-0 max-w-[17ch] text-[#9FE221] text-center md:text-left">
+      <motion.div
+        variants={staggerContainer}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: false, amount: "0.25" }} className="font-poppins space-y-20">
+        <motion.h2 variants={textVariant2} className="font-fjalla_one tracking-wide text-3xl leading-snug md:leading-tight sm:text-5xl mx-auto md:mx-0 max-w-[17ch] text-[#9FE221] text-center md:text-left">
         What people are saying about us
-        </h2>
+        </motion.h2>
         <motion.div 
           ref={crousel}
           className="overflow-hidden cursor-grab max-w-5xl mx-auto">
@@ -65,8 +86,19 @@ function Testimonials() {
             drag="x" dragConstraints={{right: 0, left: -width}}
             whileTap={{cursor:"grabbing"}}
           >
-            {testimonials.map((testimonial)=> (
-                <motion.div key={testimonial.id} className="space-y-8 group hover:[background:linear-gradient(144.39deg,_#F3FAFC_-278.56%,_#6C8791_-110.98%,_#06191F_87.63%)] rounded-[20px] p-8 min-w-[320px] [background:none]">
+            {testimonials.map((testimonial, index)=> {
+              return  <motion.div key={testimonial.id} 
+                className={`space-y-8 group transition delay-100 ease-in-out ${index === position ? '[background:linear-gradient(144.39deg,_#F3FAFC_-278.56%,_#6C8791_-110.98%,_#06191F_87.63%)]' : '[background:none]'} rounded-[20px] p-8 min-w-[320px]`}
+                initial={{scale: 0}}
+                animate={{
+                  scale: index === position ? 1 : 0.8,
+                }}
+                transition={{
+                  type: "spring",
+                  stiffness: 260,
+                  damping: 20,
+                }}
+              >{ console.log( index, position)}
                 <div className="flex flex-col place-content-center">
                 <img
                     src={`./images/${testimonial.image}.png`}
@@ -89,10 +121,10 @@ function Testimonials() {
                 {testimonial.comment}{" "}
                 </p>
                 </motion.div>
-            ))}
+            })}
           </motion.div>
         </motion.div>
-      </div>
+      </motion.div>
     </div>
   );
 }

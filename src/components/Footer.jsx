@@ -1,4 +1,6 @@
+import { motion } from "framer-motion";
 import React from "react";
+import { fadeIn, textVariant2 } from "../utils/motion";
 import Button from "./Button";
 
 const footer = [
@@ -121,9 +123,9 @@ function Footer() {
         <div className="bg-[#04303F] space-y-12 font-poppins rounded-xl shadow-sm bg-[url('./images/footerdecorated_bgimage1.svg')] bg-no-repeat bg-left-top">
           <div className="bg-footer-decor2 bg-no-repeat bg-right-bottom px-4">
             <div className="space-y-14 py-12 sm:px-8 sm:py-20 max-w-4xl mx-auto">
-              <h2 className="text-[#9FE221] text-2xl sm:text-4xl font-semibold text-center leading-none">
+              <motion.h2 variants={textVariant2} initial="hidden" whileInView="show" viewport={{ once: false, amount: "0.25" }} className="text-[#9FE221] text-2xl sm:text-4xl font-semibold text-center leading-none">
                 Subscribe to our newsletter
-              </h2>
+              </motion.h2>
               <form action="">
                 <div className="grid grid-cols-1 items-center gap-x-3 gap-y-5 md:grid-cols-3">
                   <div>

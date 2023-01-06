@@ -1,4 +1,7 @@
+import { motion } from "framer-motion";
 import React from "react";
+import { fadeIn, staggerContainer } from "../utils/motion";
+import { TypingText } from "./TypingText";
 
 const card_details = [
   {
@@ -24,13 +27,21 @@ const card_details = [
 function ProjectsCard() {
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-20 md:mb-36">
-      <div className="font-poppins space-y-16">
-        <h2 className="font-fjalla_one tracking-wide text-5xl leading-snug sm:text-[64px] text-[#9FE221] text-center lg:text-left">
-          Projects Portfolio
-        </h2>
+      <motion.div
+        variants={staggerContainer}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: false, amount: "0.25" }}
+        className="font-poppins space-y-16"
+      >
+        <TypingText title="Projects Portfolio" />
         <div className="flex flex-col md:flex-row gap-4 lg:gap-16">
-          {card_details.map((detail) => (
-            <div key={detail.id} className="group font-poppins max-w-[352px] mx-auto">
+          {card_details.map((detail, index) => (
+            <motion.div
+              key={detail.id}
+              variants={fadeIn('right', 'spring', index * 0.5)}
+              className="group font-poppins max-w-[352px] mx-auto"
+            >
               <img
                 src={`./images/${detail.image}.svg`}
                 className="grayscale brightness-50"
@@ -53,10 +64,10 @@ function ProjectsCard() {
                   {detail.desc}
                 </p>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 }
