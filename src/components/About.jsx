@@ -5,9 +5,9 @@ import { TypingText } from "./TypingText";
 
 function About() {
   return (
-    <div
+    <section
       id="about"
-      className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-20 md:my-28 mt-0"
+      className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 my-20 md:my-32 mt-0"
     >
       <motion.div
         variants={staggerContainer}
@@ -22,7 +22,7 @@ function About() {
         <div className="grid grid-cols-1 justify-items-center items-center lg:items-start lg:grid-cols-2 gap-10 lg:gap-16">
           <motion.p
             variants={fadeIn('up', 'tween', 0.5, 1)}
-            className="text-base text-[#D9F4FD] text-center leading-loose lg:text-justify mx-auto lg:mx-0 max-w-prose"
+            className="text-base text-[#D9F4FD] text-justify xs:text-center leading-loose lg:text-justify mx-auto lg:mx-0 max-w-prose"
           >
             SZSOLAR is a company that offers the opportunity to create a clean
             future for future generations through solar energy solutions.
@@ -52,12 +52,12 @@ function About() {
             <img
               src="./images/about_bgeffectimage.png"
               alt=""
-              className="absolute aspect-h-1 aspect-w-1 sm:max-w-lg top-16 sm:-top-6 right-1/2 translate-x-1/2 sm:translate-x-0 sm:right-0 sm:-left-16"
+              className="absolute aspect-h-1 aspect-w-1 sm:max-w-lg top-16 sm:-top-6 right-1/2 translate-x-1/2 sm:translate-x-0 sm:right-0 sm:-left-16 -z-[1]"
             />
           </motion.div>
         </div>
       </motion.div>
-    </div>
+    </section>
   );
 }
 

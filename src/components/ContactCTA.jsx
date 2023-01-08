@@ -5,7 +5,7 @@ import Button from './Button'
 
 function ContactCTA() {
   return (
-    <div className="bg-[url('/images/contactcta-bgimage.png')] bg-no-repeat bg-top max-w-7xl mx-auto px-4 py-24 sm:px-6 lg:px-8 mb-16 md:mb-28">
+    <section className="bg-[url('/images/contactcta-bgimage.png')] bg-no-repeat bg-top max-w-7xl mx-auto px-4 py-24 sm:px-6 lg:px-8 mb-20 md:mb-32">
         <div className='font-poppins space-y-8 max-w-5xl mx-auto'>
             <motion.div variants={staggerContainer} initial="hidden" whileInView="show" viewport={{ once: false, amount: "0.25" }} className="flex flex-col md:flex-row md:justify-between justify-center items-center gap-10 p-10 md:p-16 [background:linear-gradient(_90deg,_rgba(13,32,38,0.8)_0%,_#1E404B_100%)] rounded-xl shadow-[0px_0px_53px_rgba(0,0,0,0.25)]">
                 <div className="flex flex-col gap-y-4">
@@ -18,7 +18,7 @@ function ContactCTA() {
                 </motion.div>
             </motion.div>
         </div>
-    </div>
+    </section>
   )
 }
 

@@ -10,7 +10,7 @@ import SolarQuote from "./components/SolarQuote";
 function App() {
   return (
     <div className="bg-[#041014] overflow-hidden">
-      <Navbar />
+        <Navbar />
       <ScrollToTop>
         <Routes>
           <Route path="/" element={<LandingPage />} />

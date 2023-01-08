@@ -26,7 +26,7 @@ const card_details = [
 
 function OfferCard() {
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16 md:mb-28">
+    <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-20 md:mb-32">
       <motion.div
         variants={staggerContainer}
         initial="hidden"
@@ -70,7 +70,7 @@ function OfferCard() {
           ))}
         </div>
       </motion.div>
-    </div>
+    </section>
   );
 }
 

@@ -26,7 +26,7 @@ const card_details = [
 
 function ProjectsCard() {
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-20 md:mb-36">
+    <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-20 md:mb-36">
       <motion.div
         variants={staggerContainer}
         initial="hidden"
@@ -44,7 +44,7 @@ function ProjectsCard() {
             >
               <img
                 src={`./images/${detail.image}.svg`}
-                className="grayscale brightness-50"
+                // className="grayscale brightness-50"
                 alt=""
               />
               <div className="space-y-5 px-6">
@@ -68,7 +68,7 @@ function ProjectsCard() {
           ))}
         </div>
       </motion.div>
-    </div>
+    </section>
   );
 }
 

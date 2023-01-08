@@ -18,7 +18,7 @@ function LandingPage() {
         <Brands />
         <ProjectsCard />
         <Stats />
-        {/* <Testimonials /> */}
+        <Testimonials />
         <CalculatorCTA />
         <ContactCTA />        
     </div>

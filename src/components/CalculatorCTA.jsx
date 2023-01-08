@@ -7,7 +7,7 @@ function CalculatorCTA() {
   const navigate = useNavigate();
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 bg-gradient-to-r [background:linear-gradient(_101.27deg,_#31640B_0%,_#397C08_50.67%,_#78BB21_101.34%)] py-16 mb-16 md:mb-28">
+    <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 bg-gradient-to-r [background:linear-gradient(_101.27deg,_#31640B_0%,_#397C08_50.67%,_#78BB21_101.34%)] py-16 mb-20 md:mb-32">
       <motion.div
         variants={staggerContainer}
         initial="hidden"
@@ -44,7 +44,7 @@ function CalculatorCTA() {
           </motion.div>
         </div>
       </motion.div>
-    </div>
+    </section>
   );
 }
 

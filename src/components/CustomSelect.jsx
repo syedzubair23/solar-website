@@ -58,7 +58,7 @@ export default function CustomSelect({ option, number, label}) {
           >
             <Combobox.Options
               className={`
-            absolute z-50 mt-1 max-h-60 w-full overflow-auto rounded-md bg-[#04303F] py-1 text-base shadow-lg ring-1 ring-white/20 ring-opacity-5 focus:outline-none sm:text-sm`}
+            absolute z-10 mt-1 max-h-60 w-full overflow-auto rounded-md bg-[#04303F] py-1 text-base shadow-lg ring-1 ring-white/20 ring-opacity-5 focus:outline-none sm:text-sm`}
             >
               {filteredoption.length === 0 && query !== '' ? (
                 <div className="relative cursor-default select-none py-2 px-4 text-[#9FE221]">

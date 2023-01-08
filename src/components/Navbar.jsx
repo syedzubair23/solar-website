@@ -1,231 +1,82 @@
 import { Fragment } from 'react'
-import { Popover, Transition } from '@headlessui/react'
-import {
-  ArrowPathIcon,
-  Bars3Icon,
-  BookmarkSquareIcon,
-  CalendarIcon,
-  ChartBarIcon,
-  CursorArrowRaysIcon,
-  LifebuoyIcon,
-  PhoneIcon,
-  PlayIcon,
-  ShieldCheckIcon,
-  Squares2X2Icon,
-  XMarkIcon,
-} from '@heroicons/react/24/outline'
-import { ChevronDownIcon } from '@heroicons/react/20/solid'
-import { Link } from 'react-router-dom'
+import { Disclosure, Menu, Transition } from '@headlessui/react'
+import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
+import { Link, NavLink } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { navVariants } from '../utils/motion'
 
-const solutions = [
-  {
-    name: 'Solar Panels',
-    description: 'Get a better understanding of where your traffic is coming from.',
-    href: '#',
-    icon: ChartBarIcon,
-  },
-  {
-    name: 'Inverters',
-    description: 'Speak directly to your customers in a more meaningful way.',
-    href: '#',
-    icon: CursorArrowRaysIcon,
-  },
-  { name: 'Batteries', 
-  description: "Your customers' data will be safe and secure.", 
-  href: '#', 
-  icon: ShieldCheckIcon
-  },
-]
-const callsToAction = [
-  { name: 'Watch Demo', href: '#', icon: PlayIcon },
-  { name: 'Contact Sales', href: '#', icon: PhoneIcon },
-]
-const resources = [
-  {
-    name: 'Help Center',
-    description: 'Get all of your questions answered in our forums or contact support.',
-    href: '#',
-    icon: LifebuoyIcon,
-  },
-  {
-    name: 'Guides',
-    description: 'Learn how to maximize our platform to get the most out of it.',
-    href: '#',
-    icon: BookmarkSquareIcon,
-  },
-  {
-    name: 'Events',
-    description: 'See what meet-ups and other events we might be planning near you.',
-    href: '#',
-    icon: CalendarIcon,
-  },
-  { name: 'Security', description: 'Understand how we take your privacy seriously.', href: '#', icon: ShieldCheckIcon },
-]
-const recentPosts = [
-  { id: 1, name: 'Boost your conversion rate', href: '#' },
-  { id: 2, name: 'How to use search engine optimization to drive traffic to your site', href: '#' },
-  { id: 3, name: 'Improve your customer experience', href: '#' },
+const navigation = [
+  { name: 'Home', href: '/' },
+  // { name: 'About', href: '/about'},
+  { name: 'Calculator', href: '/calculator' },
+  { name: 'Contact', href: '/contact' },
 ]
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
 
-export default function Navbars() {
+export default function Navbar() {
   return (
-    <motion.div variants={navVariants} initial="hidden" whileInView="show" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-50">
-      <Popover className="relative font-poppins z-20">
-          <div className="flex items-center justify-between py-4 md:space-x-10">
-            <div className="flex justify-start lg:w-0 lg:flex-1">
-              <Link to="/">
-                <span className="sr-only">SZSolar</span>
-                <img
-                  className="h-8 w-auto sm:h-10"
-                  src="./images/szsolar-logo.svg"
-                  alt=""
-                />
-              </Link>
-            </div>
-            <div className="-my-2 md:hidden">
-              <Popover.Button className="inline-flex items-center justify-center rounded-md bg-[#04303F] p-2 text-white hover:bg-[#04303F]/70 hover:text-gray-200 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-[#9FE221]">
-                <span className="sr-only">Open menu</span>
-                <Bars3Icon className="h-6 w-6" aria-hidden="true" />
-              </Popover.Button>
-            </div>
-            <Popover.Group as="nav" className="hidden space-x-10 md:flex">
-              {/* <Popover className="relative">
-                {({ open }) => (
-                  <>
-                    <Popover.Button
-                      className={classNames(
-                        open ? 'text-[#9FE221]' : 'text-gray-500',
-                        'group inline-flex items-center rounded-md text-base font-medium hover:text-[#9FE221] focus:outline-none focus:ring-2 focus:ring-[#9FE221] focus:ring-offset-2'
-                      )}
-                    >
-                      <span>Solutions</span>
-                      <ChevronDownIcon
-                        className={classNames(
-                          open ? 'text-gray-600' : 'text-gray-400',
-                          'ml-2 h-5 w-5 group-hover:text-[#9FE221]'
-                        )}
-                        aria-hidden="true"
-                      />
-                    </Popover.Button>
-
-                    <Transition
-                      as={Fragment}
-                      enter="transition ease-out duration-200"
-                      enterFrom="opacity-0 translate-y-1"
-                      enterTo="opacity-100 translate-y-0"
-                      leave="transition ease-in duration-150"
-                      leaveFrom="opacity-100 translate-y-0"
-                      leaveTo="opacity-0 translate-y-1"
-                    >
-                      <Popover.Panel className="absolute z-10 -ml-4 mt-3 transform px-2 sm:px-0 lg:left-1/2 lg:ml-0 lg:-translate-x-1/2">
-                        <div className="overflow-hidden rounded-lg shadow-lg ring-1 ring-white ring-opacity-5">
-                          <div className="relative grid gap-6 bg-[#04303F] px-5 py-6 sm:gap-8 sm:p-8">
-                            {solutions.map((item) => (
-                              <a
-                                key={item.name}
-                                href={item.href}
-                                className="-m-3 flex items-start rounded-lg p-3 hover:bg-white/10"
-                              >
-                                  <p className="text-base font-medium text-white">{item.name}</p>
-                              </a>
-                            ))}
-                          </div>
-                        </div>
-                      </Popover.Panel>
-                    </Transition>
-                  </>
-                )}
-              </Popover> */}
-
-              <Link to="/" className="text-base font-medium text-gray-500 hover:text-[#9FE221]">
-                Home
-              </Link>
-              <a href='#about' className="text-base font-medium text-gray-500 hover:text-[#9FE221]">
-                About
-              </a>
-              <Link to="/calculator" className="text-base font-medium text-gray-500 hover:text-[#9FE221]">
-                Calculator
-              </Link>
-              <Link to="/contact" className="text-base font-medium text-gray-500 hover:text-[#9FE221]">
-                Contact
-              </Link>
-
-            </Popover.Group>
-          </div>
-
-        <Transition
-          as={Fragment}
-          enter="duration-200 ease-out"
-          enterFrom="opacity-0 scale-95"
-          enterTo="opacity-100 scale-100"
-          leave="duration-100 ease-in"
-          leaveFrom="opacity-100 scale-100"
-          leaveTo="opacity-0 scale-95"
-        >
-          <Popover.Panel focus className="absolute inset-x-0 top-0 origin-top-right transform pt-2 transition md:hidden z-20">
-            <div className="divide-y-2 divide-gray-50/50 rounded-lg bg-[#04303F] shadow-lg ring-1 ring-black ring-opacity-5">
-              <div className="px-5 pt-5 pb-6">
-                <div className="flex items-center justify-between">
-                  <div>
+    <motion.div variants={navVariants} initial="hidden" whileInView="show" className="relative z-40">
+      <Disclosure as="nav">
+        {({ open }) => (
+          <>
+            <div className={`mx-auto max-w-7xl px-2 sm:px-6 lg:px-8 ${open ? "bg-[#041014]" : "bg-none"}`}>
+              <div className="relative flex h-16 items-center justify-between">
+                <div className="absolute inset-y-0 right-0 flex items-center sm:hidden">
+                  {/* Mobile menu button*/}
+                  <Disclosure.Button className="inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
+                    <span className="sr-only">Open main menu</span>
+                    {open ? (
+                      <XMarkIcon className="block h-6 w-6" aria-hidden="true" />
+                    ) : (
+                      <Bars3Icon className="block h-6 w-6" aria-hidden="true" />
+                    )}
+                  </Disclosure.Button>
+                </div>
+                <div className="flex items-center justify-between w-full">
+                  <Link to='/' className="pr-2">
                     <img
-                      className="h-8 w-auto"
-                      src="./images/logo.png"
+                      className="block h-8 w-auto"
+                      src="./images/szsolar-logo.svg"
                       alt="SZSolar"
                     />
-                  </div>
-                  <div className="-mr-2">
-                    <Popover.Button className="inline-flex items-center justify-center rounded-md bg-gray-700 p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-[#9FE221]">
-                      <span className="sr-only">Close menu</span>
-                      <XMarkIcon className="h-6 w-6 text-white" aria-hidden="true" />
-                    </Popover.Button>
-                  </div>
-                </div>
-                {/* <div className="mt-6">
-                  <nav className="grid gap-y-8">
-                    {solutions.map((item) => (
-                      <a
-                        key={item.name}
-                        href={item.href}
-                        className="-m-3 flex items-center rounded-md p-3 hover:bg-white/10"
-                      >
-                        <item.icon className="h-6 w-6 flex-shrink-0 text-gray-500" aria-hidden="true" />
-                        <span className="ml-3 text-base font-medium text-white hover:text-[#9FE221]">{item.name}</span>
-                      </a>
-                    ))}
-                  </nav>
-                </div> */}
-              </div>
-              <div className="py-16">
-                <div className="grid grid-cols-1 divide-y-2 divide-gray-500/10">
-
-                <Link to="/" className="text-6xl  py-6 text-center font-fjalla_one font-medium text-white hover:text-[#9FE221]">
-                    Home
-                </Link>
-
-                  <a href="#about" className="text-6xl py-6 text-center font-fjalla_one font-medium text-white hover:text-[#9FE221]">
-                    About
-                  </a>
-
-                  <Link to="/calculator" className="text-6xl py-6 text-center font-fjalla_one font-medium text-white hover:text-[#9FE221]">
-                    Calculator
                   </Link>
-
-                  <Link to="/contact" className="text-6xl py-6 text-center font-fjalla_one font-medium text-white hover:text-[#9FE221]">
-                    Contact
-                  </Link>
-
+                  <div className="hidden sm:ml-6 sm:block">
+                    <div className="flex space-x-4">
+                      {navigation.map((item) => (
+                        <NavLink
+                          key={item.name}
+                          to={item.href}
+                          className="text-gray-300 hover:bg-gray-700 hover:text-[#9FE221] px-3 py-2 rounded-md text-sm font-medium"
+                        >
+                          {item.name}
+                        </NavLink>
+                      ))}
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
-          </Popover.Panel>
-        </Transition>
-      </Popover>
+
+            <Disclosure.Panel className="sm:hidden absolute left-0 right-0 z-40 bg-[#041014]">
+              <div className="pt-2 pb-8 divide-y-2 divide-white/5">
+                {navigation.map((item) => (
+                  <Disclosure.Button
+                    key={item.name}
+                    as={NavLink}
+                    to={item.href}
+                    className="text-gray-300 hover:bg-gray-700 hover:text-[#9FE221] block px-3 py-6 text-center text-6xl font-fjalla_one font-medium"
+                  >
+                    {item.name}
+                  </Disclosure.Button>
+                ))}
+              </div>
+            </Disclosure.Panel>
+          </>
+        )}
+      </Disclosure>
     </motion.div>
   )
 }

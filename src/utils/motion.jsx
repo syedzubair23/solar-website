@@ -1,11 +1,11 @@
 export const navVariants = {
     hidden: {
       opacity: 0,
-      y: -50,
+      y: -10,
       transition: {
         type: 'spring',
         stiffness: 300,
-        damping: 140,
+        damping: 40,
       },
     },
     show: {
@@ -13,7 +13,7 @@ export const navVariants = {
       y: 0,
       transition: {
         type: 'spring',
-        stiffness: 80,
+        stiffness: 180,
         delay: 1,
       },
     },
@@ -108,21 +108,19 @@ export const navVariants = {
     },
   });
   
-  export const planetVariants = (direction) => ({
+  export const buttonVariant = {
     hidden: {
-      x: direction === 'left' ? '-100%' : '100%',
-      rotate: 45,
+        translateY: 0,
     },
     show: {
-      x: 0,
-      rotate: 0,
-      transition: {
-        type: 'spring',
-        duration: 1.8,
-        delay: 0.5,
-      },
+        translateY: 1.5,
+        transition: {
+            type: "spring", 
+            stiffness: 400, 
+            damping: 10
+        },
     },
-  });
+  };
   
   export const zoomIn = (delay, duration) => ({
     hidden: {

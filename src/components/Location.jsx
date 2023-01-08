@@ -27,7 +27,7 @@ const locations = [
 
 function Location() {
   return (
-    <motion.div
+    <motion.section
     variants={staggerContainer}
     initial="hidden"
     whileInView="show"
@@ -47,7 +47,7 @@ function Location() {
           </motion.div>
         ))}
       </motion.div>
-    </motion.div>
+    </motion.section>
   );
 }
 

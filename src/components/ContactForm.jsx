@@ -5,9 +5,9 @@ import Button from "./Button";
 
 function ContactForm() {
   return (
-    <div className="font-poppins">
-        <div className="grid grid-cols-2 md:grid-cols-5 gap-8 md:gap-16 bg-[#084457B5]/70 rounded-3xl">
-          <div className="py-11 px-8 col-span-2 [background:linear-gradient(180deg,_#0e7fa6,_#08546d)] rounded-t-3xl md:rounded-tr-none md:rounded-l-3xl">
+    <section className="font-poppins">
+        <div className="grid grid-cols-2 md:grid-cols-5 gap-8 md:gap-8 lg:gap-16 bg-[#084457B5]/70 rounded-3xl">
+          <div className="py-11 px-4 xs:px-8 col-span-2 [background:linear-gradient(180deg,_#0e7fa6,_#08546d)] rounded-t-3xl md:rounded-tr-none md:rounded-l-3xl">
             <div className="flex flex-col justify-center items-start space-y-4 text-[#BBEBFB]">
               <h3 className="text-white font-medium text-xl">
                 Contact Information
@@ -17,19 +17,19 @@ function ContactForm() {
                 representative will answer you in almost an hour.
               </p>
               <div className="flex flex-col justify-center items-start space-y-6">
-                <div className="flex md:flex-col justify-center items-start gap-4 lg:items-center lg:flex-row">
+                <div className="flex justify-center gap-4 items-center">
                   <HiOutlinePhone className="w-6 h-6 text-[#04303F]" />
                   <p className="text-sm">+1(555) 123-3212</p>
                 </div>
-                <div className="flex md:flex-col justify-center items-start gap-4 lg:items-center lg:flex-row">
+                <div className="flex justify-center gap-4 items-center">
                   <HiOutlineMail className="w-6 h-6 text-[#04303F]" />
                   <p className="text-sm">support@gmail.com</p>
                 </div>
               </div>
             </div>
           </div>
-          <div className="col-span-2 md:col-span-3 py-8 mr-0 md:mr-16">
-            <form action="" className="px-8 md:px-0 mb-8 md:mb-0">
+          <div className="col-span-2 md:col-span-3 py-8 mr-0 md:mr-8 lg:mr-16">
+            <form action="" className="px-4 xs:px-8 md:px-0 mb-8 md:mb-0">
               <div className="space-y-6">
                 <div className="grid gap-x-8 gap-y-5 md:grid-cols-2">
                   <div>
@@ -138,7 +138,7 @@ function ContactForm() {
             </form>
           </div>
         </div>
-    </div>
+    </section>
   );
 }
 

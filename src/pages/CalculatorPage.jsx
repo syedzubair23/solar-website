@@ -223,13 +223,13 @@ function CalculatorPage() {
 
   return (
     <>
-      <div className="max-w-7xl mx-auto py-16 md:py-28 mb-16 md:mb-28 bg-[url('/images/calculatorpage-bgimage.png')] bg-no-repeat bg-cover font-poppins">
-        {/* <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-28 mb-16">
+      {/* <div className="max-w-7xl mx-auto py-16 md:py-28 mb-16 md:mb-28 bg-[url('/images/calculatorpage-bgimage.png')] bg-no-repeat bg-cover bg-top font-poppins"> */}
+        <div className="max-w-7xl mx-auto py-16 md:py-28 mb-16 relative">
         <img
           src="./images/calculatorpage-bgimage.png"
-          className="absolute top-0 max-w-7xl mx-auto z-0 object-contain"
+          className="absolute -top-16 pointer-events-none h-[2090px] xs:h-[1915px] sm:h-[2030px] md:h-[1591px] object-cover overflow-hidden"
           alt=""
-        /> */}
+        />
         <motion.div
           variants={staggerContainer}
           initial="hidden"
@@ -240,7 +240,7 @@ function CalculatorPage() {
           <motion.h2 variants={textVariant2} className="px-4 sm:px-6 lg:px-8 font-fjalla_one text-5xl sm:text-7xl lg:text-8xl text-white tracking-wide text-center">
             Solar Calculator
           </motion.h2>
-          <div className="px-6 sm:px-10 lg:px-12 [background:linear-gradient(101.27deg,_#31640b,_#397c08_50%,_#78bb21)] py-20 grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-10 items-start justify-items-center font-poppins">
+          <div className="px-6 sm:px-10 lg:px-12 [background:linear-gradient(101.27deg,_#31640b,_#397c08_50%,_#78bb21)] py-20 grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-10 items-start justify-items-center font-poppins relative z-10">
             <motion.div variants={fadeIn('right', 'tween', 0.3, 1)} className="space-y-10 md:space-y-14">
               <h3 className="text-3xl lg:text-4xl font-semibold text-white text-center">
                 Electricity Units (Monthly)
@@ -290,7 +290,7 @@ function CalculatorPage() {
             </motion.h3>
             <form
               action=""
-              className="max-w-xl md:max-w-3xl mx-auto font-poppins"
+              className="max-w-xl md:max-w-3xl mx-auto font-poppins relative z-10"
             >
               <div className="grid gap-x-8 gap-y-5 md:grid-cols-2">
                 {calculator_option.map((opt) => (

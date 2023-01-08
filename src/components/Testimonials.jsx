@@ -47,15 +47,7 @@ function Testimonials() {
   const [position, setPosition] = useState(0)
   const crousel = useRef()
 
-  const mod = (n, m) => {
-    let result = n % m;
-
-    // return a positive value
-    return result >= 0 ? result : result + m;
-  }
-
   useEffect(() => {
-    // console.log(crousel.current.scrollWidth, crousel.current.offsetWidth)
     setWidth(crousel.current.scrollWidth - crousel.current.offsetWidth)
   }, [])
 
@@ -69,13 +61,10 @@ function Testimonials() {
   }, [position])
   
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16 md:mb-28">
-      <motion.div
-        variants={staggerContainer}
-        initial="hidden"
-        whileInView="show"
-        viewport={{ once: false, amount: "0.25" }} className="font-poppins space-y-20">
-        <motion.h2 variants={textVariant2} className="font-fjalla_one tracking-wide text-3xl leading-snug md:leading-tight sm:text-5xl mx-auto md:mx-0 max-w-[17ch] text-[#9FE221] text-center md:text-left">
+    <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-20 md:mb-32">
+      <div
+        className="font-poppins space-y-20">
+        <motion.h2 variants={textVariant2} className="font-fjalla_one tracking-wide text-3xl leading-snug md:leading-tight sm:text-5xl mx-auto lg:mx-0 max-w-[17ch] text-[#9FE221] text-center lg:text-left">
         What people are saying about us
         </motion.h2>
         <motion.div 
@@ -124,8 +113,8 @@ function Testimonials() {
             })}
           </motion.div>
         </motion.div>
-      </motion.div>
-    </div>
+      </div>
+    </section>
   );
 }
 

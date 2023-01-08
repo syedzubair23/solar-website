@@ -13,7 +13,7 @@ import { fadeIn, staggerContainer, textVariant, textVariant2 } from "../utils/mo
 
 function Stats() {
   return (
-    <div className="bg-[url('/images/stats-bgimage.png')] bg-no-repeat bg-[top_right_-20rem] sm:bg-right-top lg:bg-center max-w-7xl mx-auto mb-16 md:mb-28 px-4 pt-16 pb-8 md:pb-0 lg:pb-32 sm:px-6 lg:px-8">
+    <section className="bg-[url('/images/stats-bgimage.png')] bg-no-repeat bg-[top_right_-20rem] sm:bg-right-top lg:bg-center max-w-7xl mx-auto mb-16 md:mb-28 px-4 pt-16 pb-8 md:pb-0 lg:pb-32 sm:px-6 lg:px-8">
 
       <motion.div
         variants={staggerContainer}
@@ -22,10 +22,10 @@ function Stats() {
         viewport={{ once: false, amount: "0.25" }}
         className="font-poppins space-y-20">
         <div className="space-y-10">
-          <motion.h2 variants={textVariant2} className="font-fjalla_one tracking-wide text-3xl leading-snug md:leading-tight sm:text-5xl mx-auto md:mx-0 max-w-[17ch] text-[#9FE221] text-center md:text-left">
+          <motion.h2 variants={textVariant2} className="font-fjalla_one tracking-wide text-3xl leading-snug md:leading-tight sm:text-5xl mx-auto lg:mx-0 max-w-[17ch] text-[#9FE221] text-center lg:text-left">
             We are Pakistan's Famous Solar Brand
           </motion.h2>
-          <motion.p variants={textVariant(1.2)} className="text-base text-[#D9F4FD] text-center md:text-left mx-auto md:mx-0 max-w-prose leading-relaxed">
+          <motion.p variants={textVariant(1.2)} className="text-base text-[#D9F4FD] text-center lg:text-left mx-auto lg:mx-0 max-w-prose leading-relaxed">
             We are providing solar solutions in Pakistan since 2012. We have
             satisfied clients all over the Pakistan. Our skillful engineers are
             always cooperative and give clear guidance to customers. We have
@@ -83,7 +83,7 @@ function Stats() {
         </motion.div>
         {/* </div> */}
       </motion.div>
-    </div>
+    </section>
   );
 }
 

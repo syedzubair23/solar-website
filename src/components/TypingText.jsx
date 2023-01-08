@@ -9,19 +9,8 @@ export const TypingText = ({ title }) => (
   >
     {Array.from(title).map((letter, index) => (
       <motion.span variants={textVariant2} key={index}>
-        {letter === ' ' ? '\u00A0' : letter}
+        {letter}
       </motion.span>
     ))}
   </motion.p>
-);
-
-export const TitleText = ({ title }) => (
-  <motion.h2
-    variants={textVariant2}
-    initial="hidden"
-    whileInView="show"
-    className="font-fjalla_one tracking-wide text-5xl leading-snug sm:text-[64px] text-[#9FE221] text-center lg:text-left"
-  >
-    {title}
-  </motion.h2>
 );
