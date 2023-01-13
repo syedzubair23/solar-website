@@ -8,10 +8,12 @@ import OfferCard from '../components/OfferCard'
 import ProjectsCard from '../components/ProjectsCard'
 import Stats from '../components/Stats'
 import Testimonials from '../components/Testimonials'
+import { motion } from 'framer-motion'
+import { pageVariant } from '../utils/motion'
 
 function LandingPage() {
   return (
-    <div>
+    <motion.div variants={pageVariant} initial="hidden" animate="show" exit="exit">
         <Hero />
         <About />
         <OfferCard />
@@ -21,7 +23,7 @@ function LandingPage() {
         <Testimonials />
         <CalculatorCTA />
         <ContactCTA />        
-    </div>
+    </motion.div>
   )
 }
 

@@ -7,7 +7,7 @@ import Button from "../components/Button";
 import CustomSelect from "../components/CustomSelect";
 import SolarQuote from "../components/SolarQuote";
 import { motion } from "framer-motion";
-import { fadeIn, staggerContainer, textVariant, textVariant2, zoomIn } from "../utils/motion";
+import { fadeIn, staggerContainer, pageVariant, textVariant2, zoomIn } from "../utils/motion";
 
 // const solar_panel_company = [
 //     { id: spc1, item: 'CanadianSolar' },
@@ -224,7 +224,7 @@ function CalculatorPage() {
   return (
     <>
       {/* <div className="max-w-7xl mx-auto py-16 md:py-28 mb-16 md:mb-28 bg-[url('/images/calculatorpage-bgimage.png')] bg-no-repeat bg-cover bg-top font-poppins"> */}
-        <div className="max-w-7xl mx-auto py-16 md:py-28 mb-16 relative">
+        <motion.div variants={pageVariant} initial="hidden" animate="show" exit="exit" className="max-w-7xl mx-auto py-16 md:py-28 mb-16 relative">
         <img
           src="./images/calculatorpage-bgimage.png"
           className="absolute -top-16 pointer-events-none h-[2090px] xs:h-[1915px] sm:h-[2030px] md:h-[1591px] object-cover overflow-hidden"
@@ -327,7 +327,7 @@ function CalculatorPage() {
             </form>
           </div>
         </motion.div>
-      </div>
+      </motion.div>
     </>
   );
 }

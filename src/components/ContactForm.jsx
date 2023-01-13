@@ -1,6 +1,5 @@
 import React from "react";
-import { HiOutlinePhone } from "react-icons/hi2";
-import { HiOutlineMail } from "react-icons/hi";
+import { PhoneIcon, EnvelopeIcon } from "@heroicons/react/24/outline";
 import Button from "./Button";
 
 function ContactForm() {
@@ -18,11 +17,11 @@ function ContactForm() {
               </p>
               <div className="flex flex-col justify-center items-start space-y-6">
                 <div className="flex justify-center gap-4 items-center">
-                  <HiOutlinePhone className="w-6 h-6 text-[#04303F]" />
+                  <PhoneIcon className="w-6 h-6 text-[#04303F]" />
                   <p className="text-sm">+1(555) 123-3212</p>
                 </div>
                 <div className="flex justify-center gap-4 items-center">
-                  <HiOutlineMail className="w-6 h-6 text-[#04303F]" />
+                  <EnvelopeIcon className="w-6 h-6 text-[#04303F]" />
                   <p className="text-sm">support@gmail.com</p>
                 </div>
               </div>

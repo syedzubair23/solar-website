@@ -61,7 +61,7 @@ export default function Navbar() {
             </div>
 
             <Disclosure.Panel className="sm:hidden absolute left-0 right-0 z-40 bg-[#041014]">
-              <div className="pt-2 pb-8 divide-y-2 divide-white/5">
+              <div className="pt-2 pb-32 divide-y-2 divide-white/5">
                 {navigation.map((item) => (
                   <Disclosure.Button
                     key={item.name}

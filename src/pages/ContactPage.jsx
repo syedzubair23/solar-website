@@ -2,11 +2,11 @@ import React from "react";
 import ContactForm from "../components/ContactForm";
 import Location from "../components/Location";
 import { motion } from "framer-motion";
-import { fadeIn, staggerContainer, textVariant } from "../utils/motion";
+import { fadeIn, pageVariant, staggerContainer, textVariant } from "../utils/motion";
 
 function ContactPage() {
   return (
-    <div className="max-w-7xl mx-auto bg-[url('/images/contactpage-bgimage2.svg')] bg-no-repeat bg-[center_bottom_-5rem] md:bg-[center_bottom_6rem] lg:bg-[center_bottom_1.5rem] bg-[length:auto_878px]">
+    <motion.div variants={pageVariant} initial="hidden" animate="show" exit="exit" className="max-w-7xl mx-auto bg-[url('/images/contactpage-bgimage2.svg')] bg-no-repeat bg-[center_bottom_-5rem] md:bg-[center_bottom_6rem] lg:bg-[center_bottom_1.5rem] bg-[length:auto_878px]">
       <motion.div
         variants={staggerContainer}
         initial="hidden"
@@ -43,7 +43,7 @@ function ContactPage() {
           <Location />
         </div>
       </motion.div>
-    </div>
+    </motion.div>
   );
 }
 
