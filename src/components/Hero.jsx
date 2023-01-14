@@ -12,13 +12,13 @@ import { useRef } from "react";
 
 function Hero() {
   const navigate = useNavigate();
-  let ref = useRef(null)
-  let { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ['start start', 'end start'],
-  })
-  let y = useTransform(scrollYProgress, [0, 1], ["0%", "50%"])
-  let opacity = useTransform(scrollYProgress, [0,1 ], [1, 0])
+  // let ref = useRef(null)
+  // let { scrollYProgress } = useScroll({
+  //   target: ref,
+  //   offset: ['start start', 'end start'],
+  // })
+  // let y = useTransform(scrollYProgress, [0, 1], ["0%", "50%"])
+  // let opacity = useTransform(scrollYProgress, [0,1 ], [1, 0])
 
   return (
     <motion.section
@@ -27,7 +27,7 @@ function Hero() {
       whileInView="show"
       viewport={{ once: false, amount: "0.25" }}
       className="max-w-7xl mx-auto relative"
-      ref={ref}
+      // ref={ref}
     >
       <motion.img
         variants={fadeIn("right", "tween", 0.2, 1)}
@@ -36,7 +36,9 @@ function Hero() {
         src="./images/hero-bgimage.png"
         className="absolute -left-4 -top-36 max-h-[850px] pointer-events-none"
       />
-      <motion.div style={{y, opacity}} className="font-poppins grid grid-cols-1 md:grid-cols-2 items-center justify-items-center md:justify-items-end gap-x-8 md:gap-x-4 gap-y-16 my-20 px-4 sm:px-6 lg:px-8">
+      <motion.div 
+      // style={{y, opacity}} 
+      className="font-poppins grid grid-cols-1 md:grid-cols-2 items-center justify-items-center md:justify-items-end gap-x-8 md:gap-x-4 gap-y-16 my-20 px-4 sm:px-6 lg:px-8">
         <div className="space-y-8">
           <div>
             <motion.h1

@@ -7,7 +7,7 @@ function About() {
   return (
     <section
       id="about"
-      className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 my-20 md:mb-32 md:mt-80 mt-10"
+      className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 my-20 md:my-32 mt-0"
     >
       <motion.div
         variants={staggerContainer}
