@@ -1,62 +1,31 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { textVariant2 } from "../utils/motion";
+import { staggerContainer, textVariant, textVariant2 } from "../utils/motion";
 import Marquee from "react-fast-marquee";
-
-const testimonials = [
-  {
-    id: 1,
-    image: "testimonial-image1",
-    name: "Engr. Zubair",
-    role: "Leader & Founder",
-    comment:
-      "The SZSolar team have demonstrated a strong commitment to customer service.",
-  },
-  {
-    id: 2,
-    image: "testimonial-image2",
-    name: "Dr. Faseeha",
-    role: "CEO & Leader",
-    comment:
-      "I was extremely pleased with my service with SZSolar Solutions. They are thougrouly professional.",
-  },
-  {
-    id: 3,
-    image: "testimonial-image3",
-    name: "Engr. Nabeel",
-    role: "Creator & Designer",
-    comment:
-      "SZSolar provide top-notch solar installation service. I would highly recommend them.",
-  },
-  {
-    id: 4,
-    image: "testimonial-image4",
-    name: "Syeda Zara",
-    role: "Developer",
-    comment:
-      "The SZSolar team is throughly professional. They guide you in the best possible way.",
-  },
-  {
-    id: 5,
-    image: "testimonial-image5",
-    name: "Rehman Ali",
-    role: "Constructor",
-    comment:
-      "The whole setup was installed in a day by SZSolar team. They are efficient and skilled professionals.",
-  },
-];
+import { testimonials } from "../constants";
 
 function Testimonials() {
   return (
     <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-20 md:mb-32">
-      <div className="font-poppins space-y-20">
+      <motion.div
+        variants={staggerContainer}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: false, amount: "0.25" }}
+        className="font-poppins space-y-20"
+      >
         <motion.h2
           variants={textVariant2}
           className="font-fjalla_one tracking-wide text-3xl leading-snug md:leading-tight sm:text-5xl mx-auto lg:mx-0 max-w-[17ch] text-[#9FE221] text-center lg:text-left"
         >
           What people are saying about us
         </motion.h2>
-        <Marquee speed={100} pauseOnHover={true} gradientColor={[4,16,20]} gradientWidth={200}>
+        <Marquee
+          speed={100}
+          pauseOnHover={true}
+          gradientColor={[4, 16, 20]}
+          gradientWidth={200}
+        >
           <div className="flex gap-x-10">
             {testimonials.map((testimonial, index) => {
               return (
@@ -90,10 +59,9 @@ function Testimonials() {
             })}
           </div>
         </Marquee>
-      </div>
+      </motion.div>
     </section>
   );
 }
 
 export default Testimonials;
-

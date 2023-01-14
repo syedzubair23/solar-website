@@ -6,8 +6,6 @@ const Myclass = plugin(function ({ addUtilities }) {
   addUtilities({
     ".my-rotate-y-180": {
       transform: "rotateY(180deg)",
-      // transition: "transform 300ms",
-      // transitionTimingFunction: "cubic-bezier(.57,.21,.69,1.25)"
     },
     ".preserve-3d": {
       transformStyle: "preserve-3d",

@@ -4,17 +4,7 @@ import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
 import { Link, NavLink } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { navVariants } from '../utils/motion'
-
-const navigation = [
-  { name: 'Home', href: '/' },
-  // { name: 'About', href: '/about'},
-  { name: 'Calculator', href: '/calculator' },
-  { name: 'Contact', href: '/contact' },
-]
-
-function classNames(...classes) {
-  return classes.filter(Boolean).join(' ')
-}
+import { navigation } from '../constants'
 
 export default function Navbar() {
   return (

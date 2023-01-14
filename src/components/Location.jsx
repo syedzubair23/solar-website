@@ -1,29 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { fadeIn, staggerContainer } from "../utils/motion";
-
-const locations = [
-  {
-    id: "multan",
-    name: "Multan",
-    address: "3211 Gulgasht Colony Multan, ML 66000",
-  },
-  {
-    id: "karachi",
-    name: "Karachi",
-    address: "1122 Bharia Town Karachi, KH 12300",
-  },
-  {
-    id: "lahore",
-    name: "Lahore",
-    address: "1311 Gulberg Town Lahore, LH 36000",
-  },
-  {
-    id: "peshawar",
-    name: "Peshawar",
-    address: "9212 Namak Mandi Peshawar, PW 9100",
-  },
-];
+import { locations } from "../constants";
 
 function Location() {
   return (

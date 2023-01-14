@@ -9,173 +9,6 @@ import SolarQuote from "../components/SolarQuote";
 import { motion } from "framer-motion";
 import { fadeIn, staggerContainer, pageVariant, textVariant2, zoomIn } from "../utils/motion";
 
-// const solar_panel_company = [
-//     { id: spc1, item: 'CanadianSolar' },
-//     { id: spc2, item: 'Longi' },
-//     { id: spc3, item: 'JASolar' },
-//     { id: spc4, item: 'Inverex' },
-//     { id: spc5, item: 'JinkoSolar' },
-//   ]
-
-//   const solar_technology = [
-//     { id: st1, item: 'Mono-Perc Halfcut' },
-//     { id: st2, item: 'PolyCrystalline' },
-//   ]
-
-//   const panel_watt_rating = [
-//       { id: pwr1, item: '370 watt' },
-//       { id: pwr2, item: '535 watt' },
-//       { id: pwr3, item: '540 watt' },
-//       { id: pwr4, item: '545 watt' },
-//       { id: pwr5, item: '600 watt' },
-//       { id: pwr6, item: '665 watt' },
-//     ]
-
-//   const number_of_panels = [...Array(99).keys()]
-
-//   const inverter_company = [
-//       { id: ic1, item: 'Inverex' },
-//       { id: ic2, item: 'SolarMax' },
-//       { id: ic3, item: 'MaxPower' },
-//       { id: ic4, item: 'Fronius' },
-//       { id: ic5, item: 'Solis' },
-//       { id: ic6, item: 'Tesla' },
-//       { id: ic7, item: 'ABB' },
-//     ]
-
-//   const inverter_kw_rating = [
-//       { id: ikr1, item: '1.5kw' },
-//       { id: ikr2, item: '3.2kw' },
-//       { id: ikr3, item: '5kw' },
-//       { id: ikr4, item: '5.6kw' },
-//       { id: ikr5, item: '6kw' },
-//       { id: ikr6, item: '8kw' },
-//       { id: ikr7, item: '10kw' },
-//     ]
-
-//   const mounting_structure = [
-//       { id: ms1, item: 'L2 Galvanized Iron' },
-//       { id: ms2, item: 'L3 Galvanized Iron' },
-//       { id: ms3, item: 'Custom Iron Structure' },
-//     ]
-
-//   const battery_type = [
-//       { id: bt1, item: 'Tubular' },
-//       { id: bt2, item: 'Lead-Acid' },
-//       { id: bt3, item: 'Lithium' },
-//     ]
-
-//   const battery_company = [
-//       { id: bc1, item: 'Phoenix' },
-//       { id: bc2, item: 'Osaka' },
-//       { id: bc3, item: 'Inverex' },
-//     ]
-
-//   const battery_ampere = [
-//       { id: ba1, item: '185AH' },
-//       { id: ba2, item: '200AH' },
-//     ]
-
-const calculator_option = [
-  {
-    id: 1,
-    label: "Solar Company",
-    options: [
-      { id: "spc1", title: "solar_company", item: "CanadianSolar" },
-      { id: "spc2", title: "solar_company", item: "Longi" },
-      { id: "spc3", title: "solar_company", item: "JASolar" },
-      { id: "spc4", title: "solar_company", item: "Inverex" },
-      { id: "spc5", title: "solar_company", item: "JinkoSolar" },
-    ],
-  },
-  {
-    id: 2,
-    label: "Solar Technology",
-    options: [
-      { id: "st1", title: "solar_technology", item: "Mono-Perc Halfcut" },
-      { id: "st2", title: "solar_technology", item: "PolyCrystalline" },
-    ],
-  },
-  {
-    id: 3,
-    label: "Solar Plate Watts Rating",
-    options: [
-      { id: "pwr1", title: "solar_rating", item: "370 watt" },
-      { id: "pwr2", title: "solar_rating", item: "535 watt" },
-      { id: "pwr3", title: "solar_rating", item: "540 watt" },
-      { id: "pwr4", title: "solar_rating", item: "545 watt" },
-      { id: "pwr5", title: "solar_rating", item: "600 watt" },
-      { id: "pwr6", title: "solar_rating", item: "665 watt" },
-    ],
-  },
-  {
-    id: 4,
-    label: "Number of Solar Plates",
-    options: [...Array(99).keys()],
-  },
-  {
-    id: 5,
-    label: "Solar Inverter Company",
-    options: [
-      { id: "ic1", title: "inverter_company", item: "Inverex" },
-      { id: "ic2", title: "inverter_company", item: "SolarMax" },
-      { id: "ic3", title: "inverter_company", item: "MaxPower" },
-      { id: "ic4", title: "inverter_company", item: "Fronius" },
-      { id: "ic5", title: "inverter_company", item: "Solis" },
-      { id: "ic6", title: "inverter_company", item: "Tesla" },
-      { id: "ic7", title: "inverter_company", item: "ABB" },
-    ],
-  },
-  {
-    id: 6,
-    label: "Inverter KW Rating",
-    options: [
-      { id: "ikr1", title: "inverter_rating", item: "1.5kw" },
-      { id: "ikr2", title: "inverter_rating", item: "3.2kw" },
-      { id: "ikr3", title: "inverter_rating", item: "5kw" },
-      { id: "ikr4", title: "inverter_rating", item: "5.6kw" },
-      { id: "ikr5", title: "inverter_rating", item: "6kw" },
-      { id: "ikr6", title: "inverter_rating", item: "8kw" },
-      { id: "ikr7", title: "inverter_rating", item: "10kw" },
-    ],
-  },
-  {
-    id: 7,
-    label: "Mounting Structure",
-    options: [
-      { id: "ms1", title: "mounting_structure", item: "L2 Galvanized Iron" },
-      { id: "ms2", title: "mounting_structure", item: "L3 Galvanized Iron" },
-      { id: "ms3", title: "mounting_structure", item: "Custom Iron Structure" },
-    ],
-  },
-  {
-    id: 8,
-    label: "Battery Type",
-    options: [
-      { id: "bt1", title: "battery_type", item: "Tubular" },
-      { id: "bt2", title: "battery_type", item: "Lead-Acid" },
-      { id: "bt3", title: "battery_type", item: "Lithium" },
-    ],
-  },
-  {
-    id: 9,
-    label: "Battery Company",
-    options: [
-      { id: "bc1", title: "battery_company", item: "Phoenix" },
-      { id: "bc2", title: "battery_company", item: "Osaka" },
-      { id: "bc3", title: "battery_company", item: "Inverex" },
-    ],
-  },
-  {
-    id: 10,
-    label: "Battery Ampere",
-    options: [
-      { id: "ba1", title: "battery_ampere", item: "185AH" },
-      { id: "ba2", title: "battery_ampere", item: "200AH" },
-    ],
-  },
-];
-
 function CalculatorPage() {
   const [unitRange, setUnitRange] = useState(300);
   const unit_range = Number(unitRange);
@@ -225,11 +58,11 @@ function CalculatorPage() {
     <>
       {/* <div className="max-w-7xl mx-auto py-16 md:py-28 mb-16 md:mb-28 bg-[url('/images/calculatorpage-bgimage.png')] bg-no-repeat bg-cover bg-top font-poppins"> */}
         <motion.div variants={pageVariant} initial="hidden" animate="show" exit="exit" className="max-w-7xl mx-auto py-16 md:py-28 mb-16 relative">
-        <img
+        {/* <img
           src="./images/calculatorpage-bgimage.png"
           className="absolute -top-16 pointer-events-none h-[2090px] xs:h-[1915px] sm:h-[2030px] md:h-[1591px] object-cover overflow-hidden"
           alt=""
-        />
+        /> */}
         <motion.div
           variants={staggerContainer}
           initial="hidden"
@@ -284,7 +117,7 @@ function CalculatorPage() {
               </h4>
             </motion.div>
           </div>
-          <div className="px-4 sm:px-6 lg:px-8">
+          {/* <div className="px-4 sm:px-6 lg:px-8">
             <motion.h3 variants={zoomIn(0.6, 1)} className="text-3xl font-semibold text-white text-center mb-10">
               Get Estimated Quote
             </motion.h3>
@@ -325,7 +158,7 @@ function CalculatorPage() {
                 />
               </div>
             </form>
-          </div>
+          </div> */}
         </motion.div>
       </motion.div>
     </>
